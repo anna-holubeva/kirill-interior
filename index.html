@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black &amp; Honey — Ремонт без дизайнера: пройдите опрос и заберите гайд</title>
+<meta name="description" content="Спланируйте удобную квартиру, выберите правильный цвет и договоритесь с бригадой без переплат. Пройдите короткий опрос и получите один из трёх гайдов от практикующих дизайнеров в подарок.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* ============ ТОКЕНЫ (палитра blackandhoney.ru — из гайдов) ============ */
+:root{
+  --ink:        #1A1A1A;
+  --ink-deep:   #171513;
+  --paper:      #F7F5F2;
+  --paper-2:    #F0EDE8;
+  --page:       #FDFCFA;
+  --honey:      #FFC857;
+  --honey-deep: #E2A93B;
+  --terra:      #E85D3C;
+  --terra-deep: #D14A2A;
+  --terra-soft: #FFF1ED;
+  --muted:      #6B6B6B;
+  --line:       #E3DFD8;
+  --line-dark:  rgba(247,245,242,.14);
+  --paper-dim:  rgba(247,245,242,.74);
+  --paper-dim2: rgba(247,245,242,.55);
+
+  /* пастельные акценты (как в гайдах) */
+  --p-yellow:   #FFC857;
+  --p-purple:   #A78BFA;
+  --p-green:    #5DD39E;
+  --p-yellow-soft: #FFF0D2;
+  --p-purple-soft: #EFE9FE;
+  --p-green-soft:  #DDF5EA;
+
+  /* выкрасы для финальной ленты */
+  --sw-cream:   #F0E6D4;
+  --sw-greige:  #CFC6B8;
+  --sw-green:   #D6D2BD;
+
+  --wrap: 1120px;
+  --radius: 22px;
+  --shadow-sm: 0 2px 10px rgba(26,20,14,.05);
+  --shadow-md: 0 14px 40px rgba(26,20,14,.10);
+  --shadow-lg: 0 26px 70px rgba(26,20,14,.16);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Manrope',system-ui,-apple-system,sans-serif;
+  font-weight:500;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  line-height:1.55;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--honey);color:var(--ink)}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.section{padding:clamp(64px,9vw,120px) 0}
+
+/* ============ ТИПОГРАФИКА ============ */
+h1,h2,h3,h4{letter-spacing:-.015em;line-height:1.08;font-weight:800}
+.uf{font-family:'Unbounded',sans-serif}
+
+.kicker{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:22px;
+}
+.kicker::before{content:"";width:34px;height:2px;background:currentColor;border-radius:2px}
+.kicker.on-dark{color:var(--honey)}
+
+h2.h{font-size:clamp(1.7rem,4.2vw,2.7rem);max-width:20ch;margin-bottom:22px}
+h2.h em{font-style:normal;color:var(--terra)}
+.on-dark h2.h em,.dark h2.h em{color:var(--honey)}
+.lead{font-size:clamp(1.05rem,2.2vw,1.28rem);line-height:1.55;font-weight:600;max-width:60ch;color:#332f2b}
+.dark .lead,.on-dark .lead{color:var(--paper-dim)}
+
+/* ============ КНОПКИ ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  font-weight:800;font-size:1.06rem;line-height:1;
+  padding:20px 34px;border-radius:100px;border:0;cursor:pointer;
+  min-height:60px;transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  text-align:center;
+}
+.btn-primary{background:var(--terra);color:#FFF6F2;box-shadow:0 10px 26px rgba(232,93,60,.34)}
+.btn-primary:hover{background:var(--terra-deep);transform:translateY(-2px);box-shadow:0 16px 34px rgba(232,93,60,.42)}
+.btn-honey{background:var(--honey);color:var(--ink);box-shadow:0 10px 26px rgba(255,200,87,.36)}
+.btn-honey:hover{background:var(--honey-deep);transform:translateY(-2px);box-shadow:0 16px 34px rgba(255,200,87,.44)}
+.btn .arw{font-family:'Unbounded';font-weight:500;transition:transform .18s ease}
+.btn:hover .arw{transform:translateX(4px)}
+.btn-sm{padding:13px 22px;font-size:.94rem;min-height:46px}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+.cta-note{font-size:.86rem;color:var(--muted);font-weight:600;letter-spacing:.01em;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.cta-note b{color:var(--ink)}
+.on-dark .cta-note,.dark .cta-note{color:var(--paper-dim2)}
+.on-dark .cta-note b,.dark .cta-note b{color:var(--honey)}
+.cta-note .dot{width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.5}
+
+/* ============ ХЕДЕР ============ */
+.head{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .3s ease, box-shadow .3s ease, padding .3s ease;
+  padding:20px 0;
+}
+.head.scrolled{background:rgba(247,245,242,.92);backdrop-filter:blur(12px);
+  box-shadow:0 1px 0 var(--line),0 8px 24px rgba(26,20,14,.06);padding:12px 0}
+.head .wrap{display:flex;align-items:center;justify-content:space-between}
+.wordmark{font-size:1.18rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#FFFDFB;transition:color .3s ease}
+.wordmark span{color:var(--honey)}
+.head.scrolled .wordmark{color:var(--ink)}
+.head.scrolled .wordmark span{color:var(--terra)}
+.head .btn-sm{background:rgba(255,255,255,.16);color:#FFFDFB;backdrop-filter:blur(4px)}
+.head.scrolled .btn-sm{background:var(--terra);color:#FFF6F2}
+.head .btn-sm:hover{transform:translateY(-1px)}
+@media(max-width:600px){.head .head-cta{display:none}}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;background:var(--terra);color:#FFF6F2;overflow:hidden;
+  padding:clamp(130px,17vw,180px) 0 clamp(70px,9vw,110px);
+}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 88% 8%,rgba(255,200,87,.20),transparent 55%);}
+.hero .wrap{position:relative;z-index:2}
+.hero-grid{display:grid;grid-template-columns:1.22fr .78fr;gap:44px;align-items:center}
+.hero-over{
+  font-size:.8rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--honey);margin-bottom:26px;display:flex;align-items:center;gap:14px;
+}
+.hero-over::before{content:"";width:40px;height:2px;background:var(--honey)}
+h1{font-size:clamp(2.9rem,6.4vw,4.4rem);line-height:1.02;color:#FFFDFB;letter-spacing:-.03em;font-weight:800}
+h1 .nb{white-space:nowrap}
+.hero-tag{margin-top:18px;font-weight:700;
+  font-size:clamp(1.18rem,2.6vw,1.68rem);line-height:1.3;color:var(--honey);max-width:26ch;letter-spacing:-.01em}
+.hero-sub{margin-top:22px;font-size:clamp(1.02rem,2.1vw,1.18rem);line-height:1.55;font-weight:500;
+  color:rgba(255,246,242,.9);max-width:52ch}
+.hero-cta{margin-top:38px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.hero .cta-note{color:rgba(255,246,242,.78)}
+.hero .cta-note b{color:var(--honey)}
+
+/* кредл: команда практикующих дизайнеров */
+.hero-cred{
+  margin-top:28px;display:inline-flex;align-items:center;gap:13px;
+  background:rgba(255,255,255,.10);border:1px solid rgba(255,246,242,.22);
+  border-radius:100px;padding:9px 18px 9px 11px;backdrop-filter:blur(4px);
+}
+.hero-cred .cred-ic{width:34px;height:34px;border-radius:50%;flex:0 0 auto;
+  background:var(--honey);color:var(--ink);display:flex;align-items:center;justify-content:center}
+.hero-cred .cred-ic svg{width:19px;height:19px}
+.hero-cred span{font-size:.95rem;line-height:1.3;color:rgba(255,246,242,.92);font-weight:600}
+.hero-cred b{color:var(--honey);font-weight:800}
+
+/* ============ 3D-КНИГА (гайд как продукт) ============ */
+.book{
+  position:relative;width:var(--bw,168px);aspect-ratio:172/244;
+  border-radius:3px 9px 9px 3px;background:#efe7d6;
+  box-shadow:0 2px 4px rgba(26,20,14,.14),0 9px 16px rgba(26,20,14,.16),
+    0 24px 44px -10px rgba(26,20,14,.5);
+  transition:transform .45s cubic-bezier(.2,.8,.25,1),box-shadow .45s ease;
+}
+.book__face{position:absolute;inset:0;border-radius:inherit;overflow:hidden}
+.book__face img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+/* тень корешка + глянец слева */
+.book__face::before{content:"";position:absolute;left:0;top:0;bottom:0;width:20px;z-index:2;
+  background:linear-gradient(90deg,rgba(0,0,0,.30),rgba(0,0,0,.06) 55%,rgba(255,255,255,.12) 80%,rgba(255,255,255,0))}
+.book__face::after{content:"";position:absolute;left:17px;top:0;bottom:0;width:2px;z-index:2;background:rgba(255,255,255,.22)}
+/* блок страниц справа (толщина) */
+.book::before{content:"";position:absolute;top:5px;bottom:5px;right:-7px;width:9px;z-index:-1;
+  border-radius:0 3px 3px 0;
+  background:repeating-linear-gradient(90deg,#f3ecdc 0,#f3ecdc 1px,#dccfb6 1px,#dccfb6 2px);
+  box-shadow:3px 0 8px rgba(0,0,0,.22)}
+
+/* три книги в hero */
+.hero-art{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:500px}
+.hero-art::before{content:"";position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);
+  width:460px;height:460px;border-radius:50%;z-index:0;
+  background:radial-gradient(circle,rgba(255,200,87,.30),transparent 62%)}
+.hero-books{position:relative;z-index:2;display:flex;justify-content:center;align-items:flex-end}
+.hero-books .book{--bw:186px}
+.hero-books .b1{transform:rotate(-9deg);margin-right:-30px;z-index:1}
+.hero-books .b2{--bw:206px;transform:translateY(-22px);z-index:3}
+.hero-books .b3{transform:rotate(9deg);margin-left:-30px;z-index:2}
+.hero-books:hover .b1{transform:rotate(-13deg) translateX(-8px)}
+.hero-books:hover .b3{transform:rotate(13deg) translateX(8px)}
+.hero-books:hover .b2{transform:translateY(-30px)}
+/* общая тень-подложка под книгами */
+.hero-art::after{content:"";position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  width:340px;height:34px;border-radius:50%;background:rgba(0,0,0,.28);filter:blur(18px);z-index:1}
+.hero-art .badge{
+  position:absolute;right:6px;top:8px;z-index:6;
+  background:var(--honey);color:var(--ink);font-weight:800;
+  border-radius:100px;padding:11px 19px;font-size:.92rem;box-shadow:var(--shadow-md);
+  transform:rotate(5deg);
+}
+.hero-art .badge .uf{font-size:1.18rem}
+
+/* ============ БЛОК БОЛИ ============ */
+.pain{background:var(--paper)}
+.pain-head{max-width:40ch}
+.pain-intro{font-size:1.1rem;font-weight:600;color:#332f2b;margin-top:6px;max-width:56ch}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.pcard{
+  background:var(--page);border-radius:var(--radius);padding:32px 30px;
+  border-top:4px solid var(--terra);box-shadow:var(--shadow-sm);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.pcard .pn{font-family:'Unbounded';font-weight:500;font-size:1.5rem;color:var(--terra);
+  display:block;margin-bottom:14px;line-height:1}
+.pcard h4{font-size:1.14rem;font-weight:800;margin-bottom:9px;line-height:1.25}
+.pcard p{font-size:.98rem;line-height:1.55;color:#4a4640}
+.pcard p b{color:var(--ink);font-weight:800}
+
+/* плашка ценности (тёмный якорь) */
+.value{
+  margin-top:34px;background:var(--ink-deep);color:var(--paper);
+  border-radius:var(--radius);padding:clamp(34px,5vw,52px);
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,4vw,52px);align-items:center;
+}
+.value .big{font-family:'Unbounded';font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);
+  color:var(--honey);line-height:1;white-space:nowrap}
+.value .big small{display:block;font-family:'Manrope';font-size:.8rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dim2);margin-top:12px;white-space:normal;max-width:20ch}
+.value p{font-size:clamp(1.05rem,2.1vw,1.24rem);line-height:1.55;color:var(--paper-dim)}
+.value p b{color:#FFF;font-weight:800}
+.value p .hl{color:var(--honey)}
+@media(max-width:680px){.value{grid-template-columns:1fr;gap:22px}.value .big{white-space:normal}}
+
+/* ============ ГАЙДЫ ============ */
+.guides{background:var(--paper-2)}
+.guides-head{text-align:center;max-width:44ch;margin:0 auto}
+.guides-head .kicker{justify-content:center}
+.guides-head .kicker::before{display:none}
+.guides-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.gcard{
+  background:var(--page);border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow-sm);display:flex;flex-direction:column;position:relative;
+  border:1px solid var(--line);transition:transform .22s ease, box-shadow .22s ease;
+}
+.gcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.gcard .gc-top{height:6px}
+.gcard.y .gc-top{background:var(--p-yellow)}
+.gcard.p .gc-top{background:var(--p-purple)}
+.gcard.g .gc-top{background:var(--p-green)}
+/* книга-гайд как «продукт» в подарок */
+.gc-media{position:relative;height:308px;overflow:hidden;
+  display:flex;justify-content:center;align-items:center;padding:30px;border-bottom:1px solid var(--line)}
+.gcard.y .gc-media{background:radial-gradient(125% 105% at 50% 8%,var(--p-yellow-soft),#FBF8F3 80%)}
+.gcard.p .gc-media{background:radial-gradient(125% 105% at 50% 8%,var(--p-purple-soft),#FBF8F3 80%)}
+.gcard.g .gc-media{background:radial-gradient(125% 105% at 50% 8%,var(--p-green-soft),#FBF8F3 80%)}
+.gc-media .book{--bw:176px;transform:rotate(-4deg)}
+.gcard:hover .gc-media .book{transform:rotate(0) translateY(-6px)}
+.gc-media .gc-peek{
+  position:absolute;left:16px;top:16px;z-index:4;
+  background:var(--honey);color:var(--ink);
+  border-radius:100px;padding:7px 14px;font-size:.74rem;font-weight:800;letter-spacing:.03em;
+  display:inline-flex;align-items:center;gap:7px;box-shadow:var(--shadow-sm);
+}
+.gc-media .gc-peek svg{width:13px;height:13px}
+.gc-in{padding:32px 30px 30px;display:flex;flex-direction:column;flex:1}
+.gc-num{
+  display:inline-flex;align-items:center;align-self:flex-start;border-radius:100px;
+  padding:8px 17px;font-family:'Unbounded';font-weight:500;font-size:.82rem;letter-spacing:.02em;
+  margin-bottom:16px;
+}
+.gcard.y .gc-num{background:var(--p-yellow-soft);color:#8A6210}
+.gcard.p .gc-num{background:var(--p-purple-soft);color:#5F4AB8}
+.gcard.g .gc-num{background:var(--p-green-soft);color:#1F7D55}
+.gc-tag{font-size:.74rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:12px}
+.gcard.p .gc-tag{color:#6B4FCF}
+.gcard.g .gc-tag{color:#1F9D66}
+.gc-h{font-size:1.28rem;font-weight:800;line-height:1.22;margin-bottom:12px;letter-spacing:-.01em}
+.gc-for{font-size:.92rem;line-height:1.45;color:var(--muted);font-weight:600;margin-bottom:22px;
+  padding-bottom:22px;border-bottom:1px solid var(--line)}
+.gc-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+.gc-list li{font-size:.96rem;line-height:1.5;color:#3D3B38;padding-left:26px;position:relative}
+.gc-list li::before{content:"";position:absolute;left:0;top:8px;width:9px;height:9px;border-radius:50%}
+.gcard.y .gc-list li::before{background:var(--p-yellow)}
+.gcard.p .gc-list li::before{background:var(--p-purple)}
+.gcard.g .gc-list li::before{background:var(--p-green)}
+.gc-res{margin-top:auto;border-radius:14px;padding:16px 18px;font-size:.94rem;line-height:1.45}
+.gc-res b{display:block;font-size:.72rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+  margin-bottom:6px;opacity:.85}
+.gcard.y .gc-res{background:var(--p-yellow-soft);color:#6E4E0C}
+.gcard.p .gc-res{background:var(--p-purple-soft);color:#4B3A9A}
+.gcard.g .gc-res{background:var(--p-green-soft);color:#186947}
+
+.guides-note{
+  margin:40px auto 0;max-width:70ch;text-align:center;
+  background:var(--terra-soft);border-radius:16px;padding:24px 30px;
+  font-size:1rem;line-height:1.55;color:#7A4635;position:relative;
+}
+.guides-note b{color:var(--terra-deep);font-weight:800}
+.guides-cta{text-align:center;margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:16px}
+
+/* ============ КАК ЭТО РАБОТАЕТ / 8 МИНУТ (тёмный) ============ */
+.how{background:var(--ink-deep);color:var(--paper)}
+.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center}
+.how h2.h{color:var(--paper)}
+.how .lead{margin-top:6px}
+.how-cta{margin-top:34px;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.steps{display:flex;flex-direction:column;gap:2px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:flex-start;
+  padding:24px 0;border-top:1px solid var(--line-dark)}
+.step:last-child{border-bottom:1px solid var(--line-dark)}
+.step .sn{width:46px;height:46px;border-radius:50%;background:var(--honey);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;font-family:'Unbounded';font-weight:500;
+  font-size:1.1rem;flex:0 0 auto}
+.step h4{font-size:1.14rem;font-weight:800;margin-bottom:5px;color:var(--paper)}
+.step p{font-size:.98rem;line-height:1.5;color:var(--paper-dim)}
+.step p b{color:var(--honey)}
+
+/* ============ АВТОР ============ */
+.author{background:var(--paper)}
+.author-card{
+  background:var(--page);border-radius:var(--radius);box-shadow:var(--shadow-md);
+  border:1px solid var(--line);overflow:hidden;
+  display:grid;grid-template-columns:300px 1fr;
+}
+.author-photo{position:relative;background:var(--paper-2)}
+.author-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.author-body{padding:clamp(36px,5vw,56px)}
+.author-body .kicker{margin-bottom:18px}
+.author-body h3{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:18px}
+.author-body h3 em{font-style:normal;color:var(--terra)}
+.author-body p{font-size:1.06rem;line-height:1.62;color:#3D3B38;max-width:56ch}
+.author-body p+p{margin-top:14px}
+.socials{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.soc{display:inline-flex;align-items:center;gap:9px;background:var(--paper-2);border-radius:100px;
+  padding:12px 22px;font-size:.96rem;font-weight:800;color:var(--ink);
+  transition:background .18s ease,transform .18s ease}
+.soc:hover{background:var(--honey);transform:translateY(-2px)}
+.soc svg{width:18px;height:18px}
+@media(max-width:760px){
+  .author-card{grid-template-columns:1fr}
+  .author-photo{height:auto;aspect-ratio:4/5;max-height:460px}
+  .author-photo img{object-position:50% 20%}
+}
+
+/* ============ ФУТЕР ============ */
+.foot{background:var(--ink-deep);color:var(--paper-dim);padding:56px 0 0}
+.foot-in{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;
+  padding-bottom:40px}
+.foot .wordmark{font-size:1.5rem;color:var(--paper)}
+.foot .wordmark span{color:var(--honey)}
+.foot-right{text-align:right;font-size:.9rem;line-height:1.6;color:var(--paper-dim2)}
+.foot-right b{color:var(--honey)}
+.foot-strip{display:flex;height:14px}
+.foot-strip i{flex:1}
+@media(max-width:600px){.foot-in{flex-direction:column;align-items:flex-start}.foot-right{text-align:left}}
+
+/* ============ АНИМАЦИЯ ПОЯВЛЕНИЯ ============ */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+
+/* ============ АДАПТИВ ============ */
+@media(max-width:940px){
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:20px}
+  .hero-art{min-height:0;margin-top:8px}
+  .pain-grid,.guides-grid{grid-template-columns:minmax(0,1fr);gap:18px}
+  .how-grid{grid-template-columns:minmax(0,1fr);gap:36px}
+}
+@media(max-width:560px){
+  .wrap{padding:0 18px}
+  .btn{width:100%;min-width:0;padding-left:20px;padding-right:20px;font-size:1rem}
+  .hero-cta,.guides-cta,.how-cta{align-items:stretch;width:100%}
+  .hero-grid>div{min-width:0}
+  h1{font-size:clamp(2.2rem,9vw,3rem)}
+  h1,.hero-tag,.hero-sub,.lead{overflow-wrap:break-word;max-width:100%}
+  .hero-books .book{--bw:150px}
+  .hero-books .b2{--bw:166px}
+  .hero-art{min-height:380px}
+  .gc-media{height:270px}
+  .gc-media .book{--bw:158px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  *{animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ ХЕДЕР ============ -->
+<header class="head" id="head">
+  <div class="wrap">
+    <div class="wordmark">Black<span>&amp;</span>Honey</div>
+    <a href="#survey" class="btn btn-sm head-cta">Получить гайд</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1 class="reveal in">Ремонт<br><span class="nb">без дизайнера</span></h1>
+        <p class="hero-tag reveal in d1">Как не слить бюджет и не переделывать всё через полгода</p>
+        <p class="hero-sub reveal in d2">Спланируйте удобную квартиру, выберите правильный цвет и договоритесь с бригадой без переплат. Пройдите короткий опрос о вашем ремонте — и получите один из трёх гайдов в подарок.</p>
+        <div class="hero-cta reveal in d3">
+          <!-- TODO: заменить href="#survey" на ссылку на опрос -->
+          <a href="#survey" class="btn btn-honey">Пройти опрос и забрать гайд <span class="arw">→</span></a>
+          <div class="cta-note">
+            <span>≈ <b>8 минут</b></span><span class="dot"></span>
+            <span>PDF сразу в <b>Телеграм</b></span><span class="dot"></span>
+            <span>бесплатно</span>
+          </div>
+        </div>
+        <div class="hero-cred reveal in d3">
+          <span class="cred-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span>Гайды готовит <b>команда практикующих дизайнеров</b> Black&nbsp;&amp;&nbsp;Honey</span>
+        </div>
+      </div>
+
+      <div class="hero-art reveal in d2">
+        <div class="badge"><span class="uf">3</span> гайда в подарок</div>
+        <div class="hero-books">
+          <div class="book b1"><div class="book__face"><img src="img/cover-page-1.png" alt="Гайд «Планировка без дизайнера»"></div></div>
+          <div class="book b2"><div class="book__face"><img src="img/cover-page-2.png" alt="Гайд «Как выбрать цвет стен»"></div></div>
+          <div class="book b3"><div class="book__face"><img src="img/cover-page-3.png" alt="Гайд «Как договориться с бригадой»"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ БЛОК БОЛИ ============ -->
+<section class="section pain">
+  <div class="wrap">
+    <div class="pain-head reveal">
+      <div class="kicker">Где теряются деньги</div>
+      <h2 class="h">Почему ваш ремонт может стоить <em>дороже</em>, чем вы думали?</h2>
+      <p class="pain-intro">Большинство тех, кто делает ремонт сам, тонут в Pinterest и советах из интернета. В итоге:</p>
+    </div>
+
+    <div class="pain-grid">
+      <div class="pcard reveal d1">
+        <span class="pn uf">01</span>
+        <h4>Планировка неудобная, а розетки — за шкафами</h4>
+        <p>Понимаете это, только когда уже въехали и живёте. <b>Перенести потом — только заново штробить стены.</b></p>
+      </div>
+      <div class="pcard reveal d2">
+        <span class="pn uf">02</span>
+        <h4>Цвет, идеальный в магазине, дома выглядит «грязным»</h4>
+        <p>Оттенок, который казался идеальным, дома читается <b>дёшево и мутно</b>. И всё перекрашивать.</p>
+      </div>
+      <div class="pcard reveal d3">
+        <span class="pn uf">03</span>
+        <h4>Бригада раздувает смету — или экономит не на том</h4>
+        <p>Платите за работы, которые вам не нужны. А там, где экономить нельзя, через год всё вскрывать и <b>переделывать — дороже, чем весь ремонт.</b></p>
+      </div>
+    </div>
+
+    <div class="value reveal">
+      <div class="big uf">200 000&nbsp;₽<small>примерно столько берёт дизайнер за проект</small></div>
+      <p>Чтобы сделать «как у дизайнера», <b>не обязательно платить дизайнеру 200 000&nbsp;₽</b> — это минус целая комната из бюджета. Достаточно знать систему: <span class="hl">что решать, в каком порядке и где именно ошибаются новички.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ГАЙДЫ ============ -->
+<section class="section guides" id="guides">
+  <div class="wrap">
+    <div class="guides-head reveal">
+      <div class="kicker">3 гайда в подарок</div>
+      <h2 class="h" style="max-width:none">Пройдите опрос и выберите <em>свой гайд</em></h2>
+      <p class="lead" style="margin:0 auto">Ответьте на пару вопросов о квартире и выберите гайд, который решает вашу задачу прямо сейчас — планировка, цвет или бригада.</p>
+    </div>
+
+    <div class="guides-grid">
+      <!-- Гайд 1 -->
+      <article class="gcard y reveal d1">
+        <div class="gc-top"></div>
+        <div class="gc-media">
+          <span class="gc-peek"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 2 4 4h-4V4Z"/></svg>Гайд&nbsp;№1</span>
+          <div class="book"><div class="book__face"><img src="img/cover-page-1.png" alt="Обложка гайда «Планировка без дизайнера»"></div></div>
+        </div>
+        <div class="gc-in">
+          <div class="gc-tag">Планировка</div>
+          <h3 class="gc-h">Планировка без дизайнера: удобная квартира с первого раза</h3>
+          <p class="gc-for">Для тех, кто только получил ключи или план БТИ</p>
+          <ul class="gc-list">
+            <li>Почему удобство квартиры не зависит от метража — и что решает на самом деле.</li>
+            <li>Какие детали планировки удешевляют даже дорогой ремонт, хотя их почти никто не замечает.</li>
+            <li>Как расширить квартиру и добавить хранение, не трогая ни одной стены.</li>
+          </ul>
+          <div class="gc-res"><b>Результат</b>Удобная квартира с первого раза, которую не захочется переделывать через полгода.</div>
+        </div>
+      </article>
+
+      <!-- Гайд 2 -->
+      <article class="gcard p reveal d2">
+        <div class="gc-top"></div>
+        <div class="gc-media">
+          <span class="gc-peek"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 2 4 4h-4V4Z"/></svg>Гайд&nbsp;№2</span>
+          <div class="book"><div class="book__face"><img src="img/cover-page-2.png" alt="Обложка гайда «Как выбрать цвет стен»"></div></div>
+        </div>
+        <div class="gc-in">
+          <div class="gc-tag">Цвет стен</div>
+          <h3 class="gc-h">Как выбрать цвет стен, чтобы потом не перекрашивать</h3>
+          <p class="gc-for">Для тех, кто боится промахнуться с оттенком и потерять 20–50 тысяч на перекраске</p>
+          <ul class="gc-list">
+            <li>Почему можно выбрать красивый цвет — и всё равно промахнуться.</li>
+            <li>Как подобрать оттенок именно под вашу комнату, а не «правильный» из журнала.</li>
+            <li>Как понять заранее, как цвет будет выглядеть на стене, — и не попасть на перекраску.</li>
+          </ul>
+          <div class="gc-res"><b>Результат</b>Цвет, который радует и утром при солнце, и вечером при лампах — без лишних трат и нервов.</div>
+        </div>
+      </article>
+
+      <!-- Гайд 3 -->
+      <article class="gcard g reveal d3">
+        <div class="gc-top"></div>
+        <div class="gc-media">
+          <span class="gc-peek"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 2 4 4h-4V4Z"/></svg>Гайд&nbsp;№3</span>
+          <div class="book"><div class="book__face"><img src="img/cover-page-3.png" alt="Обложка гайда «Как договориться с бригадой»"></div></div>
+        </div>
+        <div class="gc-in">
+          <div class="gc-tag">Бригада</div>
+          <h3 class="gc-h">Как договориться с бригадой и не переплатить</h3>
+          <p class="gc-for">Для тех, кто хочет контролировать стройку, а не быть жертвой прораба</p>
+          <ul class="gc-list">
+            <li>Какие работы раздувают смету, а вам не нужны — и на чём, наоборот, нельзя экономить.</li>
+            <li>Что записать в договор, чтобы потом не спорить с бригадой.</li>
+            <li>Как принимать работу у бригады, не разбираясь в стройке.</li>
+          </ul>
+          <div class="gc-res"><b>Результат</b>Ремонт без переплат и скандалов с бригадой.</div>
+        </div>
+      </article>
+    </div>
+
+    <p class="guides-note reveal">В каждом гайде — пометки практикующих дизайнеров: где новички чаще всего теряют деньги и на что смотреть в первую очередь. <b>Не общая вода из интернета, а конкретика под реальный ремонт.</b></p>
+
+    <div class="guides-cta reveal">
+      <a href="#survey" class="btn btn-primary">Пройти опрос и выбрать гайд <span class="arw">→</span></a>
+      <div class="cta-note"><span>≈ <b>8 минут</b></span><span class="dot"></span><span>гайд придёт в Телеграм сразу после опроса</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ КАК ЭТО РАБОТАЕТ / 8 МИНУТ ============ -->
+<section class="section how on-dark" id="survey">
+  <div class="wrap">
+    <div class="how-grid">
+      <div class="reveal">
+        <div class="kicker on-dark">Как это работает</div>
+        <h2 class="h">Уделите <em>8 минут</em> сейчас — чтобы не потерять месяцы и деньги на переделках</h2>
+        <p class="lead">Ответьте на несколько вопросов о вашей квартире и этапе ремонта. Так мы поймём, что вам нужнее всего, а вы сразу получите PDF-гайд в Телеграм-бот.</p>
+        <div class="how-cta">
+          <!-- TODO: заменить href на ссылку на опрос -->
+          <a href="#" class="btn btn-honey">Начать опрос <span class="arw">→</span></a>
+          <div class="cta-note"><span>Без регистрации</span><span class="dot"></span><span><b>PDF</b> приходит автоматически</span></div>
+        </div>
+      </div>
+
+      <div class="steps reveal d1">
+        <div class="step">
+          <div class="sn uf">1</div>
+          <div><h4>Пройдите короткий опрос</h4><p>Несколько вопросов о вашей квартире и этапе ремонта — <b>около 8 минут.</b></p></div>
+        </div>
+        <div class="step">
+          <div class="sn uf">2</div>
+          <div><h4>Выберите свой гайд</h4><p>В конце вы <b>сами выбираете</b> тот гайд, что решает вашу задачу прямо сейчас — планировка, цвет или бригада.</p></div>
+        </div>
+        <div class="step">
+          <div class="sn uf">3</div>
+          <div><h4>Получите PDF в Телеграм</h4><p>Гайд придёт в бот <b>сразу</b> — открывайте с телефона и применяйте к своему ремонту.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ АВТОР ============ -->
+<section class="section author">
+  <div class="wrap">
+    <div class="author-card reveal">
+      <div class="author-photo">
+        <img src="img/kirill-photo.jpg" alt="Кирилл — сооснователь студии дизайна интерьеров Black&amp;Honey">
+      </div>
+      <div class="author-body">
+        <div class="kicker">Кто это пишет</div>
+        <h3>Меня зовут <em>Кирилл</em></h3>
+        <p>Десять лет в недвижимости, шесть лет — сооснователь студии дизайна интерьеров Black&amp;Honey. За это время прошёл через сотни ремонтов — своих, клиентских, чужих, удачных и катастрофических.</p>
+        <p>Веду YouTube и Telegram-канал «Навигатор Ремонта» — рассказываю, как делать ремонт без переделок, без слёз и без переплат.</p>
+        <div class="socials">
+          <!-- TODO: вставить реальные ссылки -->
+          <a href="#" class="soc" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.6-.46-5.32a2.78 2.78 0 0 0-1.96-1.96C18.86 4.26 12 4.26 12 4.26s-6.86 0-8.58.46A2.78 2.78 0 0 0 1.46 6.68C1 8.4 1 12 1 12s0 3.6.46 5.32a2.78 2.78 0 0 0 1.96 1.96c1.72.46 8.58.46 8.58.46s6.86 0 8.58-.46a2.78 2.78 0 0 0 1.96-1.96C23 15.6 23 12 23 12ZM9.75 15.02V8.98L15.5 12l-5.75 3.02Z"/></svg>
+            YouTube
+          </a>
+          <a href="#" class="soc" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.3 18.6 20.02c-.25 1.1-.9 1.37-1.83.86l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1.02.5l.36-5.16 9.4-8.49c.4-.36-.09-.56-.63-.2L5.16 13.2 0.15 11.64c-1.09-.34-1.11-1.09.23-1.61L20.53 2.7c.9-.34 1.7.2 1.4 1.6Z"/></svg>
+            Telegram
+          </a>
+          <a href="#" class="soc" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ФУТЕР ============ -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <div class="wordmark">Black<span>&amp;</span>Honey</div>
+      <p style="margin-top:12px;font-size:.94rem;max-width:34ch">Ремонт без переделок, без слёз и без переплат — от практикующих дизайнеров.</p>
+    </div>
+    <div class="foot-right">
+      <b>blackandhoney.ru</b><br>
+      Студия дизайна интерьеров
+    </div>
+  </div>
+  <div class="foot-strip" aria-hidden="true">
+    <i style="background:var(--sw-cream)"></i>
+    <i style="background:var(--sw-greige)"></i>
+    <i style="background:var(--sw-green)"></i>
+    <i style="background:var(--honey)"></i>
+    <i style="background:var(--terra)"></i>
+  </div>
+</footer>
+
+<script>
+/* хедер: смена стиля при скролле */
+(function(){
+  var head = document.getElementById('head');
+  var onScroll = function(){ head.classList.toggle('scrolled', window.scrollY > 40); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+})();
+
+/* появление блоков при скролле */
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal:not(.in)');
+  if(reduce || !('IntersectionObserver' in window)){
+    els.forEach(function(e){e.classList.add('in')});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+  /* защитный фолбэк: гарантированно показать любой ещё скрытый блок */
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.in)').forEach(function(e){
+      var r = e.getBoundingClientRect();
+      if(r.top < window.innerHeight){ e.classList.add('in'); io.unobserve(e); }
+    });
+  }, 1400);
+})();
+</script>
+</body>
+</html>
