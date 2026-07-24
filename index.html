@@ -330,6 +330,9 @@ h1 .nb{white-space:nowrap}
 }
 .author-photo{position:relative;background:var(--paper-2)}
 .author-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.author-photo .photo-cap{position:absolute;left:16px;bottom:16px;
+  background:rgba(27,25,23,.82);color:#FFFDFB;backdrop-filter:blur(4px);
+  border-radius:100px;padding:6px 14px;font-size:.78rem;font-weight:700;letter-spacing:.01em}
 .author-body{padding:clamp(36px,5vw,56px)}
 .author-body .kicker{margin-bottom:18px}
 .author-body h3{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:18px}
@@ -589,24 +592,25 @@ h1 .nb{white-space:nowrap}
   <div class="wrap">
     <div class="author-card reveal">
       <div class="author-photo">
-        <img src="img/kirill-photo.jpg" alt="Кирилл — сооснователь студии дизайна интерьеров Black&amp;Honey">
+        <img src="img/kirill-photo.jpg" alt="Кирилл Бегинин — сооснователь студии дизайна интерьеров Black&amp;Honey">
+        <span class="photo-cap">Кирилл, сооснователь</span>
       </div>
       <div class="author-body">
-        <div class="kicker">Кто это пишет</div>
-        <h3>Меня зовут <em>Кирилл</em></h3>
-        <p>Десять лет в недвижимости, шесть лет — сооснователь студии дизайна интерьеров Black&amp;Honey. За это время прошёл через сотни ремонтов — своих, клиентских, чужих, удачных и катастрофических.</p>
-        <p>Веду YouTube и Telegram-канал «Навигатор Ремонта» — рассказываю, как делать ремонт без переделок, без слёз и без переплат.</p>
+        <div class="kicker">Кто мы</div>
+        <h3><em>Надежда Зюбина</em> и <em>Кирилл Бегинин</em></h3>
+        <p>Основатели студии дизайна интерьеров Black&nbsp;&amp;&nbsp;Honey. Больше 12 лет проектируем интерьеры и ведём ремонты: свои, клиентские и на продажу.</p>
+        <p>За это время мы собрали авторскую методику, и её суть проста: <b>классный ремонт не обязан быть дорогим.</b> Всё, что делает дизайнер, можно оптимизировать — и получить красиво, уютно и без переплат. Мы уже прошли этот путь множество раз — чтобы вы сделали <b>такой же результат сами и с первого раза.</b></p>
+        <p>Рассказываем об этом в YouTube, Telegram и Instagram.</p>
         <div class="socials">
-          <!-- TODO: вставить реальные ссылки -->
-          <a href="#" class="soc" aria-label="YouTube">
+          <a href="https://www.youtube.com/channel/UCXq63bPtkoPcBNx7BlZNBBA" class="soc" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.6-.46-5.32a2.78 2.78 0 0 0-1.96-1.96C18.86 4.26 12 4.26 12 4.26s-6.86 0-8.58.46A2.78 2.78 0 0 0 1.46 6.68C1 8.4 1 12 1 12s0 3.6.46 5.32a2.78 2.78 0 0 0 1.96 1.96c1.72.46 8.58.46 8.58.46s6.86 0 8.58-.46a2.78 2.78 0 0 0 1.96-1.96C23 15.6 23 12 23 12ZM9.75 15.02V8.98L15.5 12l-5.75 3.02Z"/></svg>
             YouTube
           </a>
-          <a href="#" class="soc" aria-label="Telegram">
+          <a href="https://t.me/blackandhoney" class="soc" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.3 18.6 20.02c-.25 1.1-.9 1.37-1.83.86l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1.02.5l.36-5.16 9.4-8.49c.4-.36-.09-.56-.63-.2L5.16 13.2 0.15 11.64c-1.09-.34-1.11-1.09.23-1.61L20.53 2.7c.9-.34 1.7.2 1.4 1.6Z"/></svg>
             Telegram
           </a>
-          <a href="#" class="soc" aria-label="Instagram">
+          <a href="https://www.instagram.com/blackandhoneey" class="soc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
             Instagram
           </a>

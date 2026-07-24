@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Обложки гайдов B&H</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --ink:#171513; --ink-2:#211E1B;
+  --paper:#F7F5F2; --cream:#F3ECDC;
+  --honey:#FFC857; --honey-deep:#E2A93B;
+  --terra:#E85D3C; --terra-deep:#D14A2A;
+  --green:#5DD39E;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:'Manrope',system-ui,sans-serif;background:#2B2825;
+  display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px}
+
+.cover{
+  width:560px;height:794px;position:relative;overflow:hidden;
+  padding:52px 46px 46px;display:flex;flex-direction:column;
+  -webkit-font-smoothing:antialiased;
+}
+/* цветовые схемы */
+.c-ink   {background:var(--ink);   color:var(--paper)}
+.c-honey {background:var(--honey); color:var(--ink)}
+.c-terra {background:var(--terra); color:#FFF6F2}
+
+/* фактурный блик */
+.cover::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(130% 80% at 82% 6%,rgba(255,255,255,.10),transparent 55%)}
+.c-honey::after{background:radial-gradient(130% 80% at 82% 6%,rgba(255,255,255,.28),transparent 55%)}
+
+/* верхняя строка */
+.top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.wm{font-size:15px;font-weight:800;letter-spacing:.26em;text-transform:uppercase}
+.c-ink .wm,.c-terra .wm{color:#FFFDFB}
+.wm span{color:var(--honey)}
+.c-honey .wm span{color:var(--terra)}
+.ed{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  border-radius:100px;padding:6px 13px}
+.c-ink .ed{color:var(--honey);border:1.5px solid rgba(255,200,87,.4)}
+.c-honey .ed{color:var(--ink);border:1.5px solid rgba(23,21,19,.28)}
+.c-terra .ed{color:#FFF6F2;border:1.5px solid rgba(255,246,242,.42)}
+
+/* заголовок */
+.head{margin-top:auto;margin-bottom:auto;position:relative;z-index:2}
+.kick{font-size:14px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px;
+  display:flex;align-items:center;gap:11px}
+.c-ink .kick{color:var(--honey)}
+.c-honey .kick{color:var(--terra-deep)}
+.c-terra .kick{color:var(--honey)}
+.kick::before{content:"";width:30px;height:2.5px;background:currentColor;border-radius:2px}
+
+.title{font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:-.02em;font-size:82px}
+.c-ink .title{color:var(--paper);font-size:60px;letter-spacing:-.03em}
+.c-honey .title{color:var(--ink)}
+.c-terra .title{color:#FFFDFB}
+
+.mark{display:inline-block;font-weight:800;text-transform:uppercase;line-height:1;
+  font-size:33px;letter-spacing:-.01em;margin-top:18px;padding:7px 15px 9px;border-radius:8px;
+  transform:rotate(-1.4deg)}
+.c-ink .mark{background:var(--honey);color:var(--ink)}
+.c-honey .mark{background:var(--terra);color:#FFF6F2}
+.c-terra .mark{background:var(--honey);color:var(--ink)}
+
+.sub{margin-top:26px;font-size:19px;line-height:1.42;font-weight:600;max-width:400px}
+.c-ink .sub{color:rgba(247,245,242,.82)}
+.c-honey .sub{color:rgba(23,21,19,.78)}
+.c-terra .sub{color:rgba(255,246,242,.9)}
+
+/* строка ✗ / ✓ */
+.ba{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;position:relative;z-index:2}
+.ba .it{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:700;
+  padding:8px 14px 8px 9px;border-radius:100px}
+.ba .ic{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.ba .ic svg{width:12px;height:12px}
+.ba .no .ic{background:rgba(232,93,60,.9);color:#fff}
+.ba .yes .ic{background:var(--green);color:#0C3D28}
+.c-ink .ba .it{background:rgba(247,245,242,.07);color:rgba(247,245,242,.9)}
+.c-honey .ba .it{background:rgba(23,21,19,.09);color:var(--ink)}
+.c-honey .ba .no .ic{background:var(--ink);color:var(--honey)}
+.c-terra .ba .it{background:rgba(23,21,19,.16);color:#FFF6F2}
+.c-terra .ba .yes .ic{background:var(--honey);color:var(--ink)}
+
+/* низ */
+.foot{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;
+  padding-top:20px;border-top:1.5px solid}
+.c-ink .foot{border-color:rgba(247,245,242,.16)}
+.c-honey .foot{border-color:rgba(23,21,19,.18)}
+.c-terra .foot{border-color:rgba(255,246,242,.24)}
+.meta{font-size:13.5px;font-weight:700;letter-spacing:.02em}
+.c-ink .meta{color:rgba(247,245,242,.7)}
+.c-honey .meta{color:rgba(23,21,19,.66)}
+.c-terra .meta{color:rgba(255,246,242,.78)}
+.dot{opacity:.5;margin:0 6px}
+.site{font-size:13px;font-weight:800;letter-spacing:.04em}
+.c-ink .site{color:var(--honey)}
+.c-honey .site{color:var(--terra-deep)}
+.c-terra .site{color:var(--honey)}
+
+/* большой полупрозрачный водяной знак-цифра */
+.ghost{position:absolute;font-family:'Unbounded',sans-serif;font-weight:600;
+  font-size:340px;line-height:.8;right:-24px;bottom:-60px;z-index:0;opacity:.09}
+.c-ink .ghost{color:#fff}
+.c-honey .ghost{color:var(--ink);opacity:.07}
+.c-terra .ghost{color:#fff;opacity:.10}
+</style>
+</head>
+<body>
+
+<!-- ============ 01 ПЛАНИРОВКА (тёмная) ============ -->
+<section class="cover c-ink" data-c="1">
+  <div class="ghost">1</div>
+  <div class="top">
+    <div class="wm">Black<span>&amp;</span>Honey</div>
+    <div class="ed">Гайд · 01</div>
+  </div>
+  <div class="head">
+    <div class="kick">Ремонт без дизайнера</div>
+    <div class="title">Планировка</div>
+    <div class="mark">без переделок</div>
+    <p class="sub">Удобная квартира с первого раза — без переноса стен и лишних трат.</p>
+    <div class="ba">
+      <span class="it no"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>розетки за шкафом</span>
+      <span class="it yes"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>всё на своих местах</span>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="meta">4 принципа <span class="dot">·</span> 6 шагов <span class="dot">·</span> памятка</div>
+    <div class="site">blackandhoney.ru</div>
+  </div>
+</section>
+
+<!-- ============ 02 ЦВЕТ (медовая) ============ -->
+<section class="cover c-honey" data-c="2">
+  <div class="ghost">2</div>
+  <div class="top">
+    <div class="wm">Black<span>&amp;</span>Honey</div>
+    <div class="ed">Гайд · 02</div>
+  </div>
+  <div class="head">
+    <div class="kick">Ремонт без дизайнера</div>
+    <div class="title">Цвет<br>стен</div>
+    <div class="mark">без перекраски</div>
+    <p class="sub">Система подтонов и градаций белого — под свет именно вашей комнаты.</p>
+    <div class="ba">
+      <span class="it no"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>дёшево и мутно</span>
+      <span class="it yes"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>дорого и в тон</span>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="meta">3 правила <span class="dot">·</span> 2 теста <span class="dot">·</span> памятка</div>
+    <div class="site">blackandhoney.ru</div>
+  </div>
+</section>
+
+<!-- ============ 03 БРИГАДА (терракота) ============ -->
+<section class="cover c-terra" data-c="3">
+  <div class="ghost">3</div>
+  <div class="top">
+    <div class="wm">Black<span>&amp;</span>Honey</div>
+    <div class="ed">Гайд · 03</div>
+  </div>
+  <div class="head">
+    <div class="kick">Ремонт без дизайнера</div>
+    <div class="title">Бригада</div>
+    <div class="mark">без переплат</div>
+    <p class="sub">Какие работы обязательны, а какие только раздувают смету — и что вписать в договор.</p>
+    <div class="ba">
+      <span class="it no"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>переплатить</span>
+      <span class="it yes"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>проверить и принять</span>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="meta">4 принципа <span class="dot">·</span> договор <span class="dot">·</span> приёмка</div>
+    <div class="site">blackandhoney.ru</div>
+  </div>
+</section>
+
+<script>
+/* ?c=N — показать только одну обложку без отступов (для рендера) */
+(function(){
+  var m=location.search.match(/c=(\d)/);if(!m)return;
+  document.querySelectorAll('.cover').forEach(function(s){
+    if(s.dataset.c!==m[1])s.remove();
+  });
+  document.body.style.cssText='margin:0;padding:0;background:none;display:block';
+})();
+</script>
+</body>
+</html>
