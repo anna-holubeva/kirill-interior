@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Карточки Telegram-бота B&H</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --ink:#171513; --paper:#F7F5F2; --cream:#F3ECDC; --page:#FBF8F3;
+  --honey:#FFC857; --honey-deep:#E2A93B;
+  --terra:#E85D3C; --terra-deep:#D14A2A; --terra-soft:#FFF1ED;
+  --green:#5DD39E; --muted:#6B6B6B;
+  --p-yellow:#FFC857; --p-purple:#A78BFA; --p-green:#5DD39E;
+  --p-yellow-soft:#FFF0D2; --p-purple-soft:#EFE9FE; --p-green-soft:#DDF5EA;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:'Manrope',system-ui,sans-serif;background:#2B2825;
+  display:flex;flex-direction:column;align-items:center;gap:26px;padding:26px}
+.uf{font-family:'Unbounded',sans-serif}
+
+.card{width:1280px;height:800px;position:relative;overflow:hidden;
+  padding:66px 72px;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 80% at 84% 4%,rgba(255,255,255,.10),transparent 55%)}
+
+/* верхняя строка */
+.top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:3}
+.wm{font-size:22px;font-weight:800;letter-spacing:.24em;text-transform:uppercase}
+.wm span{color:var(--honey)}
+.chip-bot{font-size:15px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  border-radius:100px;padding:9px 18px}
+
+/* ============ ПРИВЕТСТВЕННАЯ (терра) ============ */
+.c-welcome{background:var(--terra);color:#FFF6F2;text-align:center;padding:40px 44px 46px}
+.c-welcome .wm{color:#FFFDFB}
+.c-welcome .top{justify-content:center}
+.c-welcome .wbody{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;z-index:2}
+/* обложки по центру, разведены */
+.c-welcome .fan{position:relative;display:flex;justify-content:center;align-items:flex-end;margin-bottom:26px}
+.c-welcome .fan .bk{position:relative;width:300px;aspect-ratio:172/244;border-radius:6px 14px 14px 6px;
+  overflow:hidden;box-shadow:0 28px 58px -12px rgba(0,0,0,.55),0 3px 8px rgba(0,0,0,.32)}
+.c-welcome .fan .bk img{width:100%;height:100%;object-fit:cover;object-position:top}
+.c-welcome .fan .bk::before{content:"";position:absolute;left:0;top:0;bottom:0;width:22px;
+  background:linear-gradient(90deg,rgba(0,0,0,.3),rgba(0,0,0,0))}
+.c-welcome .fan .k1{transform:rotate(-8deg);margin-right:-32px;z-index:1}
+.c-welcome .fan .k2{transform:translateY(-22px);z-index:3}
+.c-welcome .fan .k3{transform:rotate(8deg);margin-left:-32px;z-index:2}
+.c-welcome .badge{position:absolute;right:30px;top:-16px;z-index:5;background:var(--honey);color:var(--ink);
+  font-weight:800;font-size:20px;line-height:1.15;border-radius:100px;padding:13px 23px;transform:rotate(6deg);
+  box-shadow:0 12px 26px rgba(0,0,0,.28)}
+.c-welcome .badge .uf{font-size:24px}
+.c-welcome h1{font-size:64px;line-height:1.03;font-weight:800;letter-spacing:-.025em;color:#FFFDFB}
+.c-welcome h1 b{color:var(--honey);font-weight:800}
+/* CTA со стрелкой вниз — указывает на реальную кнопку бота под картинкой */
+.c-welcome .cta-down{margin-top:26px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.c-welcome .cta-down .pill{display:inline-flex;align-items:center;background:var(--honey);color:var(--ink);
+  font-size:27px;font-weight:800;border-radius:100px;padding:21px 52px;box-shadow:0 14px 30px rgba(255,200,87,.34)}
+.c-welcome .cta-down .arw-d{color:var(--honey);display:flex;align-items:center;justify-content:center}
+.c-welcome .cta-down .arw-d svg{width:48px;height:48px}
+
+/* ============ ВЫДАЧА ГАЙДА (пастель) ============ */
+.c-guide{color:var(--ink)}
+.c-g1{background:radial-gradient(130% 120% at 88% 0,var(--p-yellow-soft),var(--page) 78%)}
+.c-g2{background:radial-gradient(130% 120% at 88% 0,var(--p-purple-soft),var(--page) 78%)}
+.c-g3{background:radial-gradient(130% 120% at 88% 0,var(--p-green-soft),var(--page) 78%)}
+.c-guide .wm{color:var(--ink)}
+.c-guide .chip-bot{color:var(--ink);border:2px solid rgba(23,21,19,.22)}
+.c-guide .body{display:grid;grid-template-columns:1fr 400px;gap:56px;align-items:center;flex:1;position:relative;z-index:2}
+.c-guide .done{display:inline-flex;align-items:center;gap:12px;font-size:19px;font-weight:800;
+  letter-spacing:.07em;text-transform:uppercase;border-radius:100px;padding:11px 20px 11px 12px;margin-bottom:28px}
+.c-guide .done .ic{width:30px;height:30px;border-radius:50%;background:var(--green);color:#0C3D28;
+  display:flex;align-items:center;justify-content:center}
+.c-guide .done .ic svg{width:16px;height:16px}
+.c-g1 .done{background:var(--p-yellow-soft);color:#8A6210}
+.c-g2 .done{background:var(--p-purple-soft);color:#5F4AB8}
+.c-g3 .done{background:var(--p-green-soft);color:#1F7D55}
+.c-guide h1{font-size:62px;line-height:1.0;font-weight:800;letter-spacing:-.02em;max-width:660px}
+.c-guide h1 em{font-style:normal}
+.c-g1 h1 em{color:var(--terra)}.c-g2 h1 em{color:#6B4FCF}.c-g3 h1 em{color:#1F9D66}
+.c-guide .sub{margin-top:24px;font-size:27px;line-height:1.42;font-weight:500;color:#3D3B38;max-width:660px}
+.c-guide .inside{margin-top:30px;display:inline-flex;gap:12px;flex-wrap:wrap}
+.c-guide .inside span{background:#fff;border:1.5px solid var(--line,#E3DFD8);border-radius:100px;
+  padding:13px 22px;font-size:19px;font-weight:700;color:#3D3B38}
+.c-guide .pdfline{margin-top:34px;display:inline-flex;align-items:center;gap:15px;
+  background:var(--ink);color:var(--paper);border-radius:18px;padding:18px 26px;font-size:22px;font-weight:700}
+.c-guide .pdfline .doc{width:44px;height:44px;border-radius:10px;background:var(--terra);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex:0 0 auto}
+.c-guide .pdfline b{color:var(--honey)}
+/* книга */
+.bookwrap{display:flex;justify-content:center;align-items:center;position:relative}
+.book{position:relative;width:372px;aspect-ratio:172/244;border-radius:5px 12px 12px 5px;background:#efe7d6;
+  transform:rotate(-4deg);
+  box-shadow:0 3px 6px rgba(26,20,14,.16),0 14px 24px rgba(26,20,14,.18),0 34px 60px -12px rgba(26,20,14,.5)}
+.book__face{position:absolute;inset:0;border-radius:inherit;overflow:hidden}
+.book__face img{width:100%;height:100%;object-fit:cover;object-position:top}
+.book__face::before{content:"";position:absolute;left:0;top:0;bottom:0;width:26px;z-index:2;
+  background:linear-gradient(90deg,rgba(0,0,0,.30),rgba(0,0,0,.05) 55%,rgba(255,255,255,.12) 80%,rgba(255,255,255,0))}
+.book::before{content:"";position:absolute;top:7px;bottom:7px;right:-9px;width:12px;z-index:-1;border-radius:0 4px 4px 0;
+  background:repeating-linear-gradient(90deg,#f3ecdc 0,#f3ecdc 1.5px,#dccfb6 1.5px,#dccfb6 3px);
+  box-shadow:4px 0 10px rgba(0,0,0,.22)}
+
+/* низ */
+.foot{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;
+  padding-top:22px;margin-top:auto}
+.foot .site{font-size:16px;font-weight:800;letter-spacing:.04em}
+.c-welcome .foot .site{color:var(--honey)}
+.c-guide .foot .site{color:var(--terra-deep)}
+.foot .tag{font-size:15px;font-weight:600;letter-spacing:.02em}
+.c-welcome .foot .tag{color:rgba(255,246,242,.72)}
+.c-guide .foot .tag{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- ============ 1 · ПРИВЕТСТВИЕ ============ -->
+<section class="card c-welcome" data-c="1">
+  <div class="wbody">
+    <div class="fan">
+      <div class="badge"><span class="uf">3</span> гайда<br>в подарок</div>
+      <div class="bk k1"><img src="img/cover-page-1.png" alt=""></div>
+      <div class="bk k2"><img src="img/cover-page-2.png" alt=""></div>
+      <div class="bk k3"><img src="img/cover-page-3.png" alt=""></div>
+    </div>
+    <h1>Вы в двух шагах от <b>своего гайда</b></h1>
+    <div class="cta-down">
+      <span class="pill">Пройти опрос</span>
+      <span class="arw-d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 · ГАЙД 1 ПЛАНИРОВКА ============ -->
+<section class="card c-guide c-g1" data-c="2">
+  <div class="top">
+    <div class="wm">Black<span>&amp;</span>Honey</div>
+    <div class="chip-bot">Гайд · 01</div>
+  </div>
+  <div class="body">
+    <div>
+      <span class="done"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>Ваш гайд готов</span>
+      <h1><em>Планировка</em> без дизайнера</h1>
+      <p class="sub">Как спланировать удобную квартиру с первого раза — без переноса стен и лишних трат.</p>
+      <div class="inside"><span>4 принципа</span><span>6 шагов</span><span>памятка</span></div>
+      <div class="pdfline"><span class="doc">PDF</span>Файл — в <b>сообщении ниже</b></div>
+    </div>
+    <div class="bookwrap"><div class="book"><div class="book__face"><img src="img/cover-page-1.png" alt="Гайд «Планировка без дизайнера»"></div></div></div>
+  </div>
+</section>
+
+<!-- ============ 3 · ГАЙД 2 ЦВЕТ ============ -->
+<section class="card c-guide c-g2" data-c="3">
+  <div class="top">
+    <div class="wm">Black<span>&amp;</span>Honey</div>
+    <div class="chip-bot">Гайд · 02</div>
+  </div>
+  <div class="body">
+    <div>
+      <span class="done"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>Ваш гайд готов</span>
+      <h1>Как выбрать <em>цвет стен</em></h1>
+      <p class="sub">Чтобы потом не перекрашивать. Как подобрать оттенок именно под вашу комнату и не промахнуться.</p>
+      <div class="inside"><span>3 правила</span><span>2 теста</span><span>памятка</span></div>
+      <div class="pdfline"><span class="doc">PDF</span>Файл — в <b>сообщении ниже</b></div>
+    </div>
+    <div class="bookwrap"><div class="book"><div class="book__face"><img src="img/cover-page-2.png" alt="Гайд «Как выбрать цвет стен»"></div></div></div>
+  </div>
+</section>
+
+<!-- ============ 4 · ГАЙД 3 БРИГАДА ============ -->
+<section class="card c-guide c-g3" data-c="4">
+  <div class="top">
+    <div class="wm">Black<span>&amp;</span>Honey</div>
+    <div class="chip-bot">Гайд · 03</div>
+  </div>
+  <div class="body">
+    <div>
+      <span class="done"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>Ваш гайд готов</span>
+      <h1>Как договориться<br>с <em>бригадой</em></h1>
+      <p class="sub">И не переплатить. Какие работы обязательны, а какие только раздувают смету — и что вписать в договор.</p>
+      <div class="inside"><span>4 принципа</span><span>договор</span><span>приёмка</span></div>
+      <div class="pdfline"><span class="doc">PDF</span>Файл — в <b>сообщении ниже</b></div>
+    </div>
+    <div class="bookwrap"><div class="book"><div class="book__face"><img src="img/cover-page-3.png" alt="Гайд «Как договориться с бригадой»"></div></div></div>
+  </div>
+</section>
+
+<script>
+/* ?c=N — показать только одну карточку без отступов (для рендера) */
+(function(){
+  var m=location.search.match(/c=(\d)/);if(!m)return;
+  document.querySelectorAll('.card').forEach(function(s){if(s.dataset.c!==m[1])s.remove();});
+  document.body.style.cssText='margin:0;padding:0;background:none;display:block';
+})();
+</script>
+</body>
+</html>
