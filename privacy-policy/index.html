@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Политика обработки персональных данных — Black &amp; Honey</title>
+<meta name="description" content="Политика в отношении обработки персональных данных ИП Бегинин Кирилл Олегович: какие данные мы собираем, зачем, сколько храним и как отозвать согласие.">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+/* ============ ТОКЕНЫ (те же, что на лендинге) ============ */
+:root{
+  --ink:        #1A1A1A;
+  --ink-deep:   #171513;
+  --paper:      #F7F5F2;
+  --paper-2:    #F0EDE8;
+  --page:       #FDFCFA;
+  --honey:      #FFC857;
+  --honey-deep: #E2A93B;
+  --terra:      #E85D3C;
+  --terra-deep: #D14A2A;
+  --terra-soft: #FFF1ED;
+  --muted:      #6B6B6B;
+  --line:       #E3DFD8;
+  --line-dark:  rgba(247,245,242,.14);
+  --paper-dim:  rgba(247,245,242,.74);
+  --paper-dim2: rgba(247,245,242,.55);
+
+  --sw-cream:   #F0E6D4;
+  --sw-greige:  #CFC6B8;
+  --sw-green:   #D6D2BD;
+
+  --wrap: 1120px;
+  --doc: 860px;
+  --radius: 22px;
+  --shadow-sm: 0 2px 10px rgba(26,20,14,.05);
+  --shadow-md: 0 14px 40px rgba(26,20,14,.10);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Manrope',system-ui,-apple-system,sans-serif;
+  font-weight:500;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--honey);color:var(--ink)}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{letter-spacing:-.015em;line-height:1.14;font-weight:800}
+.uf{font-family:'Unbounded',sans-serif}
+
+/* ============ ХЕДЕР ============ */
+.head{
+  position:sticky;top:0;z-index:60;
+  background:var(--ink-deep);
+  border-bottom:1px solid var(--line-dark);
+}
+.head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:70px}
+.wordmark{
+  font-family:'Unbounded',sans-serif;font-weight:600;
+  font-size:1.06rem;letter-spacing:-.02em;color:#FFFDFB;
+}
+.wordmark span{color:var(--honey)}
+.back{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.94rem;font-weight:700;color:var(--paper-dim);
+  text-decoration:none;padding:10px 0;transition:color .18s ease;
+}
+.back:hover{color:var(--honey)}
+.back .arw{font-family:'Unbounded',sans-serif;font-weight:500;transition:transform .18s ease;display:inline-block}
+.back:hover .arw{transform:translateX(-4px)}
+
+/* ============ ШАПКА ДОКУМЕНТА ============ */
+.doc-hero{background:var(--ink-deep);color:var(--page);padding:clamp(48px,7vw,84px) 0 clamp(56px,8vw,92px)}
+.doc-hero .wrap{max-width:calc(var(--doc) + 48px)}
+.kicker{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:.76rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--honey);margin-bottom:20px;
+}
+.kicker::before{content:"";width:34px;height:2px;background:currentColor;border-radius:2px}
+h1{font-size:clamp(1.85rem,4.6vw,3rem);max-width:19ch;margin-bottom:22px}
+.doc-sub{font-size:clamp(1rem,2vw,1.14rem);font-weight:600;color:var(--paper-dim);max-width:58ch}
+.doc-meta{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;
+}
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 16px;border-radius:100px;
+  border:1px solid var(--line-dark);background:rgba(247,245,242,.06);
+  font-size:.86rem;font-weight:700;color:var(--paper-dim);
+}
+.pill b{color:var(--page);font-weight:800}
+
+/* ============ ТЕЛО ДОКУМЕНТА ============ */
+.doc-body{padding:clamp(40px,6vw,72px) 0 clamp(64px,9vw,110px)}
+.doc-body .wrap{max-width:calc(var(--doc) + 48px)}
+.card{
+  background:var(--page);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+  padding:clamp(26px,4.4vw,54px);
+}
+
+/* оглавление */
+.toc{
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:clamp(22px,3.4vw,34px);
+  margin-bottom:clamp(28px,4vw,44px);
+}
+.toc h2{font-size:1.06rem;margin-bottom:18px}
+.toc ol{list-style:none;counter-reset:toc;columns:2;column-gap:36px}
+.toc li{counter-increment:toc;break-inside:avoid;margin-bottom:9px}
+.toc a{
+  display:flex;gap:11px;align-items:baseline;
+  text-decoration:none;font-size:.95rem;font-weight:600;color:#3A3632;
+  transition:color .16s ease;
+}
+.toc a::before{
+  content:counter(toc);
+  font-family:'Unbounded',sans-serif;font-weight:500;font-size:.78rem;
+  color:var(--terra);min-width:15px;
+}
+.toc a:hover{color:var(--terra)}
+
+/* секции */
+section.s{scroll-margin-top:88px}
+section.s + section.s{margin-top:clamp(34px,4.6vw,52px);padding-top:clamp(30px,4vw,44px);border-top:1px solid var(--line)}
+h2.sh{
+  display:flex;gap:14px;align-items:baseline;
+  font-size:clamp(1.24rem,2.6vw,1.62rem);margin-bottom:18px;
+}
+h2.sh .num{
+  font-family:'Unbounded',sans-serif;font-weight:500;
+  font-size:.82em;color:var(--terra);flex:none;
+}
+.doc-body p{margin-bottom:14px;max-width:72ch}
+.doc-body p:last-child{margin-bottom:0}
+.doc-body b,.doc-body strong{font-weight:800}
+.doc-body a{color:var(--terra-deep);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.doc-body a:hover{color:var(--terra)}
+
+/* нумерованные пункты 1.1, 1.2 … */
+ul.pp{list-style:none;margin:0 0 14px}
+ul.pp > li{position:relative;padding-left:46px;margin-bottom:13px;max-width:74ch}
+ul.pp > li > .n{
+  position:absolute;left:0;top:.06em;
+  font-family:'Unbounded',sans-serif;font-weight:400;font-size:.8rem;
+  color:var(--muted);
+}
+ul.pp > li:last-child{margin-bottom:0}
+
+/* маркированные списки */
+ul.dots{list-style:none;margin:6px 0 16px}
+ul.dots li{position:relative;padding-left:24px;margin-bottom:9px;max-width:72ch}
+ul.dots li::before{
+  content:"";position:absolute;left:6px;top:.62em;
+  width:6px;height:6px;border-radius:50%;background:var(--terra);
+}
+ul.dots ul.dots{margin:8px 0 0}
+ul.dots ul.dots li::before{background:var(--line);border:1px solid var(--muted)}
+
+/* определения */
+dl.defs{margin:6px 0 4px}
+dl.defs dt{font-weight:800;margin-top:14px}
+dl.defs dd{margin:0;color:#3A3632;max-width:72ch}
+
+/* таблица «что собираем» */
+.tbl-wrap{overflow-x:auto;margin:8px 0 18px;-webkit-overflow-scrolling:touch}
+table.dt{border-collapse:collapse;width:100%;min-width:520px;font-size:.95rem}
+table.dt th,table.dt td{text-align:left;vertical-align:top;padding:13px 16px;border-bottom:1px solid var(--line)}
+table.dt th{
+  font-weight:800;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);background:var(--paper-2);border-bottom:1px solid var(--line);
+}
+table.dt tr:last-child td{border-bottom:0}
+table.dt td:first-child{font-weight:700;width:38%}
+
+/* врезки */
+.callout{
+  border-radius:18px;padding:22px 24px;margin:20px 0;
+  background:#FFF7E6;border:1px solid #F3DFAE;
+}
+.callout.terra{background:var(--terra-soft);border-color:#F7CFC2}
+.callout h3{font-size:1.02rem;margin-bottom:9px}
+.callout p{margin-bottom:8px}
+.callout p:last-child{margin-bottom:0}
+
+/* реквизиты */
+.req{
+  background:var(--ink-deep);color:var(--page);
+  border-radius:var(--radius);padding:clamp(24px,3.6vw,38px);margin-top:14px;
+}
+.req h3{font-size:1.06rem;margin-bottom:18px;color:#FFFDFB}
+.req dl{display:grid;grid-template-columns:minmax(150px,auto) 1fr;gap:11px 26px}
+.req dt{color:var(--paper-dim2);font-weight:600;font-size:.93rem}
+.req dd{margin:0;font-weight:700}
+.req dd a{color:var(--honey);text-decoration:none}
+.req dd a:hover{text-decoration:underline}
+
+/* подпись-дата */
+.stamp{
+  margin-top:clamp(30px,4vw,44px);padding-top:22px;border-top:1px solid var(--line);
+  font-size:.92rem;color:var(--muted);
+}
+
+/* ============ ФУТЕР ============ */
+.foot{background:var(--ink-deep);color:var(--paper-dim);padding:54px 0 0}
+.foot-in{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start;padding-bottom:38px}
+.foot .wordmark{font-size:1.5rem}
+.foot-right{text-align:right;font-size:.94rem;line-height:1.7}
+.foot-right b{color:var(--page);font-weight:800}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;font-size:.92rem}
+.foot-links a{color:var(--paper-dim);text-decoration:none;border-bottom:1px solid transparent;transition:.16s ease}
+.foot-links a:hover{color:var(--honey);border-bottom-color:currentColor}
+.foot-strip{display:flex;height:12px}
+.foot-strip i{flex:1}
+
+@media(max-width:760px){
+  .toc ol{columns:1}
+  .req dl{grid-template-columns:1fr;gap:4px 0}
+  .req dt{margin-top:12px}
+  .foot-in{flex-direction:column}
+  .foot-right{text-align:left}
+  ul.pp > li{padding-left:38px}
+}
+@media(max-width:560px){
+  .head .wrap{height:62px}
+  .doc-meta{gap:8px}
+  .pill{font-size:.8rem;padding:8px 13px}
+}
+
+@media print{
+  .head,.foot,.back{display:none}
+  body{background:#fff;line-height:1.45}
+  .doc-hero{background:#fff;color:#000;padding:0 0 18pt}
+  .doc-hero .kicker,.doc-sub{color:#444}
+  .pill{border-color:#bbb;color:#333;background:none}
+  .card,.toc{border:0;box-shadow:none;padding:0;background:none}
+  .req{background:none;color:#000;border:1px solid #999;padding:14pt}
+  .req h3,.req dd a{color:#000}
+  .req dt{color:#444}
+  section.s + section.s{border-top:1px solid #ddd}
+  a{color:#000;text-decoration:none}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ ХЕДЕР ============ -->
+<header class="head">
+  <div class="wrap">
+    <div class="wordmark">Black<span>&amp;</span>Honey</div>
+    <a href="/" class="back"><span class="arw">←</span> На главную</a>
+  </div>
+</header>
+
+<!-- ============ ШАПКА ДОКУМЕНТА ============ -->
+<section class="doc-hero">
+  <div class="wrap">
+    <div class="kicker">Правовая информация</div>
+    <h1>Политика в отношении обработки персональных данных</h1>
+    <p class="doc-sub">Что мы собираем, зачем, сколько храним и как в любой момент отозвать согласие. Документ действует для сайта, Telegram-бота и опроса Black&nbsp;&amp;&nbsp;Honey.</p>
+    <div class="doc-meta">
+      <span class="pill">Редакция от <b>11 августа 2026 г.</b></span>
+      <span class="pill">Оператор: <b>ИП Бегинин К. О.</b></span>
+      <span class="pill">ИНН <b>645206474630</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ТЕЛО ============ -->
+<div class="doc-body">
+  <div class="wrap">
+
+    <!-- ОГЛАВЛЕНИЕ -->
+    <nav class="toc" aria-label="Содержание">
+      <h2>Содержание</h2>
+      <ol>
+        <li><a href="#s1">Общие положения</a></li>
+        <li><a href="#s2">Основные понятия</a></li>
+        <li><a href="#s3">Правовые основания обработки</a></li>
+        <li><a href="#s4">Цели обработки</a></li>
+        <li><a href="#s5">Какие данные мы обрабатываем</a></li>
+        <li><a href="#s6">Порядок и условия обработки</a></li>
+        <li><a href="#s7">Сроки хранения и уничтожение</a></li>
+        <li><a href="#s8">Передача данных третьим лицам</a></li>
+        <li><a href="#s9">Права субъекта персональных данных</a></li>
+        <li><a href="#s10">Отзыв согласия</a></li>
+        <li><a href="#s11">Меры защиты данных</a></li>
+        <li><a href="#s12">Файлы cookie и технические данные</a></li>
+        <li><a href="#s13">Изменение Политики</a></li>
+        <li><a href="#s14">Реквизиты Оператора</a></li>
+      </ol>
+    </nav>
+
+    <div class="card">
+
+      <!-- 1 -->
+      <section class="s" id="s1">
+        <h2 class="sh"><span class="num">1</span> Общие положения</h2>
+        <ul class="pp">
+          <li><span class="n">1.1</span> Настоящая Политика в отношении обработки персональных данных (далее — «Политика») определяет порядок обработки персональных данных и меры по обеспечению их безопасности, принятые Индивидуальным предпринимателем Бегининым Кириллом Олеговичем (далее — «Оператор»), и опубликована во исполнение пункта 2 части 1 статьи 18.1 Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных».</li>
+          <li><span class="n">1.2</span> Политика действует в отношении всех персональных данных, которые Оператор получает от пользователей (далее — «Пользователь», «Субъект») через следующие ресурсы (далее совместно — «Сервисы»):
+            <ul class="dots">
+              <li>сайт <b>guides.blackandhoney.ru</b> и другие сайты Оператора, ссылающиеся на настоящую Политику;</li>
+              <li>Telegram-бот <b>@Interior_Finds_bot</b>;</li>
+              <li>формы опроса, анкеты и формы обратной связи, размещённые на Сервисах;</li>
+              <li>переписку с Оператором по электронной почте и в мессенджерах.</li>
+            </ul>
+          </li>
+          <li><span class="n">1.3</span> Оператор исходит из того, что Пользователь предоставляет достоверные сведения и добровольно, свободно, своей волей и в своём интересе даёт согласие на их обработку в объёме и на условиях настоящей Политики.</li>
+          <li><span class="n">1.4</span> Использование Сервисов означает, что Пользователь ознакомился с настоящей Политикой. Если Пользователь не согласен с её условиями, ему следует прекратить использование Сервисов.</li>
+          <li><span class="n">1.5</span> Сервисы не предназначены для лиц младше 18 лет. Оператор не осуществляет целенаправленный сбор персональных данных несовершеннолетних.</li>
+          <li><span class="n">1.6</span> Актуальная редакция Политики размещена по адресу <a href="https://guides.blackandhoney.ru/privacy-policy">guides.blackandhoney.ru/privacy-policy</a> и доступна в свободном доступе неограниченному кругу лиц.</li>
+        </ul>
+      </section>
+
+      <!-- 2 -->
+      <section class="s" id="s2">
+        <h2 class="sh"><span class="num">2</span> Основные понятия</h2>
+        <p>Термины употребляются в значениях, установленных статьёй 3 Федерального закона № 152-ФЗ, в том числе:</p>
+        <dl class="defs">
+          <dt>Персональные данные</dt>
+          <dd>любая информация, относящаяся прямо или косвенно к определённому или определяемому физическому лицу.</dd>
+          <dt>Обработка персональных данных</dt>
+          <dd>любое действие или совокупность действий с персональными данными, совершаемых с использованием средств автоматизации или без них: сбор, запись, систематизация, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передача (предоставление, доступ), обезличивание, блокирование, удаление, уничтожение.</dd>
+          <dt>Оператор</dt>
+          <dd>лицо, самостоятельно или совместно с другими лицами организующее и осуществляющее обработку персональных данных, а также определяющее их цели, состав и совершаемые действия.</dd>
+          <dt>Субъект персональных данных</dt>
+          <dd>физическое лицо, к которому относятся персональные данные.</dd>
+          <dt>Обезличивание</dt>
+          <dd>действия, в результате которых без использования дополнительной информации невозможно определить принадлежность персональных данных конкретному субъекту.</dd>
+          <dt>Уничтожение</dt>
+          <dd>действия, в результате которых становится невозможным восстановить содержание персональных данных и в результате которых уничтожаются материальные носители.</dd>
+        </dl>
+      </section>
+
+      <!-- 3 -->
+      <section class="s" id="s3">
+        <h2 class="sh"><span class="num">3</span> Правовые основания обработки</h2>
+        <p>Оператор обрабатывает персональные данные на следующих основаниях:</p>
+        <ul class="dots">
+          <li><b>согласие субъекта персональных данных</b> на обработку его персональных данных (пункт 1 части 1 статьи 6 Закона № 152-ФЗ) — выражается проставлением отметки в соответствующем поле формы, нажатием кнопки в Telegram-боте либо иным конклюдентным действием, о значении которого Пользователь прямо уведомлён;</li>
+          <li><b>исполнение договора</b>, стороной которого либо выгодоприобретателем или поручителем по которому является субъект, а также заключение договора по инициативе субъекта (пункт 5 части 1 статьи 6 Закона № 152-ФЗ);</li>
+          <li><b>осуществление прав и законных интересов</b> Оператора или третьих лиц при условии, что не нарушаются права и свободы субъекта (пункт 7 части 1 статьи 6 Закона № 152-ФЗ);</li>
+          <li><b>исполнение обязанностей</b>, возложенных на Оператора законодательством Российской Федерации.</li>
+        </ul>
+        <p>Направление рекламно-информационных сообщений осуществляется исключительно при наличии предварительного согласия Пользователя в соответствии с частью 1 статьи 18 Федерального закона от 13.03.2006 № 38-ФЗ «О рекламе». Такое согласие может быть отозвано в любой момент.</p>
+      </section>
+
+      <!-- 4 -->
+      <section class="s" id="s4">
+        <h2 class="sh"><span class="num">4</span> Цели обработки</h2>
+        <p>Оператор обрабатывает персональные данные только в заранее определённых и заявленных целях:</p>
+        <ul class="dots">
+          <li>предоставление Пользователю бесплатных информационных материалов (гайдов, чек-листов, инструкций), в том числе их направление в Telegram-бот;</li>
+          <li>проведение опросов и исследование аудитории для разработки и улучшения продуктов Оператора; результаты исследования используются преимущественно в обезличенном и агрегированном виде;</li>
+          <li>обработка обращений Пользователя и обратная связь, включая ответы на вопросы;</li>
+          <li>формирование списка предварительной записи на продукты Оператора и информирование о начале их продаж;</li>
+          <li>приглашение к участию в интервью и его организация — при условии, что Пользователь выразил такое желание;</li>
+          <li>направление информационных и рекламных сообщений о продуктах и материалах Оператора — при наличии отдельного согласия;</li>
+          <li>заключение и исполнение договоров, а также расчёты по ним;</li>
+          <li>исполнение требований законодательства Российской Федерации, включая налоговое законодательство и законодательство о бухгалтерском учёте.</li>
+        </ul>
+      </section>
+
+      <!-- 5 -->
+      <section class="s" id="s5">
+        <h2 class="sh"><span class="num">5</span> Какие данные мы обрабатываем</h2>
+        <ul class="pp">
+          <li><span class="n">5.1</span> Оператор обрабатывает персональные данные следующих категорий субъектов: пользователи Сервисов; участники опросов; лица, оставившие заявку на предварительную запись; участники интервью; контрагенты и покупатели продуктов Оператора.</li>
+          <li><span class="n">5.2</span> Состав обрабатываемых данных:</li>
+        </ul>
+        <div class="tbl-wrap">
+          <table class="dt">
+            <thead>
+              <tr><th>Что мы получаем</th><th>Откуда и зачем</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Имя (в том числе указанное в профиле мессенджера), никнейм, идентификатор пользователя в мессенджере</td>
+                <td>Из Telegram-бота при его запуске — чтобы направить материалы и вести переписку</td>
+              </tr>
+              <tr>
+                <td>Ответы на вопросы опроса: этап и тип ремонта, тип, площадь и назначение жилья, планируемый бюджет, текущие задачи, предпочтения и оценки</td>
+                <td>Из формы опроса — чтобы понять запросы аудитории и выбрать содержание продукта</td>
+              </tr>
+              <tr>
+                <td>Город проживания</td>
+                <td>Из формы опроса — для анализа географии аудитории</td>
+              </tr>
+              <tr>
+                <td>Сведения, сообщённые Пользователем по своему усмотрению в полях со свободным ответом</td>
+                <td>Из формы опроса и переписки — в объёме, который Пользователь определяет сам</td>
+              </tr>
+              <tr>
+                <td>Контактные данные для связи (адрес электронной почты, аккаунт в мессенджере), удобное время</td>
+                <td>Если Пользователь согласился на участие в интервью — чтобы согласовать встречу</td>
+              </tr>
+              <tr>
+                <td>Содержание переписки и обращений</td>
+                <td>Из бота, почты и мессенджеров — чтобы ответить по существу</td>
+              </tr>
+              <tr>
+                <td>Технические данные: IP-адрес, дата и время обращения, тип устройства и браузера, источник перехода, данные файлов cookie</td>
+                <td>Автоматически при посещении сайта — для его работоспособности и статистики посещаемости</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="pp">
+          <li><span class="n">5.3</span> Оператор <b>не обрабатывает</b> специальные категории персональных данных (касающиеся расовой, национальной принадлежности, политических взглядов, религиозных или философских убеждений, состояния здоровья, интимной жизни) и биометрические персональные данные. Просим не указывать такие сведения в полях со свободным ответом.</li>
+          <li><span class="n">5.4</span> Аудио- или видеозапись интервью производится только с отдельного согласия участника, полученного перед началом записи.</li>
+          <li><span class="n">5.5</span> Оператор не проверяет достоверность предоставленных сведений и не имеет технической возможности установить дееспособность Пользователя.</li>
+        </ul>
+      </section>
+
+      <!-- 6 -->
+      <section class="s" id="s6">
+        <h2 class="sh"><span class="num">6</span> Порядок и условия обработки</h2>
+        <ul class="pp">
+          <li><span class="n">6.1</span> Обработка осуществляется как с использованием средств автоматизации, так и без их использования, и включает: сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (предоставление, доступ), обезличивание, блокирование, удаление и уничтожение.</li>
+          <li><span class="n">6.2</span> Оператор обрабатывает только те персональные данные, которые отвечают заявленным целям, и не допускает обработки, избыточной по отношению к ним. Обработка ограничивается достижением конкретных, заранее определённых и законных целей.</li>
+          <li><span class="n">6.3</span> Оператор не принимает решений, порождающих юридические последствия в отношении Пользователя, исключительно на основании автоматизированной обработки персональных данных.</li>
+          <li><span class="n">6.4</span> Оператор не осуществляет распространение персональных данных неограниченному кругу лиц и не размещает их в общедоступных источниках.</li>
+          <li><span class="n">6.5</span> Запись, систематизация, накопление, хранение, уточнение и извлечение персональных данных граждан Российской Федерации осуществляются с использованием баз данных, находящихся на территории Российской Федерации (часть 5 статьи 18 Закона № 152-ФЗ).</li>
+          <li><span class="n">6.6</span> Трансграничная передача персональных данных Оператором не осуществляется. При этом Пользователь понимает, что взаимодействие через мессенджер Telegram происходит на условиях и с использованием инфраструктуры его владельца; обработка данных на стороне мессенджера регулируется его собственными правилами и Оператором не контролируется.</li>
+        </ul>
+      </section>
+
+      <!-- 7 -->
+      <section class="s" id="s7">
+        <h2 class="sh"><span class="num">7</span> Сроки хранения и уничтожение</h2>
+        <ul class="pp">
+          <li><span class="n">7.1</span> Персональные данные хранятся не дольше, чем этого требуют цели обработки, — но не более <b>3 (трёх) лет</b> с даты последнего взаимодействия Пользователя с Сервисами, если иной срок не установлен законодательством или договором.</li>
+          <li><span class="n">7.2</span> Данные, обрабатываемые в связи с исполнением договоров и требованиями налогового и бухгалтерского законодательства, хранятся в течение сроков, установленных соответствующими нормативными актами.</li>
+          <li><span class="n">7.3</span> По достижении целей обработки, при отзыве согласия либо по истечении срока хранения персональные данные подлежат уничтожению или обезличиванию в срок, не превышающий <b>30 (тридцати) дней</b>, если иное не предусмотрено законодательством.</li>
+          <li><span class="n">7.4</span> Результаты опросов и исследований в обезличенном виде, не позволяющем определить конкретное лицо, могут храниться и использоваться Оператором без ограничения срока.</li>
+        </ul>
+      </section>
+
+      <!-- 8 -->
+      <section class="s" id="s8">
+        <h2 class="sh"><span class="num">8</span> Передача данных третьим лицам</h2>
+        <ul class="pp">
+          <li><span class="n">8.1</span> Оператор <b>не продаёт</b> персональные данные и не передаёт их третьим лицам, за исключением случаев, прямо предусмотренных настоящим разделом и законодательством.</li>
+          <li><span class="n">8.2</span> Оператор вправе поручить обработку персональных данных лицам, обеспечивающим работу Сервисов (часть 3 статьи 6 Закона № 152-ФЗ), — на основании договора, содержащего обязанность соблюдать конфиденциальность и требования к защите данных. К таким лицам относятся:
+            <ul class="dots">
+              <li>сервис автоматизации мессенджеров и рассылок, на базе которого работает Telegram-бот;</li>
+              <li>сервис приёма и хранения ответов формы опроса;</li>
+              <li>хостинг-провайдер сайта;</li>
+              <li>сервис веб-аналитики — при его подключении.</li>
+            </ul>
+            Ответственность перед Пользователем за действия указанных лиц несёт Оператор.
+          </li>
+          <li><span class="n">8.3</span> Персональные данные могут быть предоставлены государственным органам по их мотивированному запросу в порядке и объёме, установленных законодательством Российской Федерации.</li>
+          <li><span class="n">8.4</span> Сервисы могут содержать ссылки на сторонние ресурсы. Оператор не отвечает за обработку персональных данных на таких ресурсах — на них действуют их собственные политики.</li>
+        </ul>
+      </section>
+
+      <!-- 9 -->
+      <section class="s" id="s9">
+        <h2 class="sh"><span class="num">9</span> Права субъекта персональных данных</h2>
+        <p>Пользователь вправе:</p>
+        <ul class="dots">
+          <li>получать сведения об обработке своих персональных данных, предусмотренные частью 7 статьи 14 Закона № 152-ФЗ: подтверждение факта обработки, её правовые основания и цели, сроки, состав данных и источник их получения;</li>
+          <li>требовать уточнения своих персональных данных, их блокирования или уничтожения, если они неполные, устаревшие, неточные, незаконно полученные или не являются необходимыми для заявленной цели;</li>
+          <li>отозвать согласие на обработку персональных данных;</li>
+          <li>отказаться от получения информационных и рекламных сообщений;</li>
+          <li>обжаловать действия или бездействие Оператора в уполномоченный орган по защите прав субъектов персональных данных (Роскомнадзор) или в судебном порядке.</li>
+        </ul>
+        <p>Для реализации своих прав Пользователь направляет запрос на адрес <a href="mailto:717101@bk.ru">717101@bk.ru</a>. Запрос должен содержать сведения, позволяющие идентифицировать Пользователя (фамилию, имя, отчество, а также никнейм или идентификатор в мессенджере, который использовался в Сервисах), и подпись Пользователя либо его представителя. Оператор рассматривает запрос и направляет ответ в течение <b>10 рабочих дней</b> с даты его получения; этот срок может быть продлён не более чем на 5 рабочих дней с уведомлением Пользователя о причинах продления.</p>
+      </section>
+
+      <!-- 10 -->
+      <section class="s" id="s10">
+        <h2 class="sh"><span class="num">10</span> Отзыв согласия</h2>
+        <div class="callout">
+          <h3>Как отозвать согласие в любой момент</h3>
+          <p>Напишите на <a href="mailto:717101@bk.ru">717101@bk.ru</a> с темой «Отзыв согласия» или отправьте сообщение с таким текстом в Telegram-бот <b>@Interior_Finds_bot</b>. Укажите имя и никнейм (идентификатор), под которым вы пользовались Сервисами.</p>
+          <p>Отдельно можно отказаться только от рассылки, сохранив доступ к боту, — для этого достаточно сообщить об этом в боте или письмом.</p>
+        </div>
+        <ul class="pp">
+          <li><span class="n">10.1</span> В случае отзыва согласия Оператор прекращает обработку персональных данных и уничтожает их в срок, не превышающий 30 дней с даты поступления отзыва.</li>
+          <li><span class="n">10.2</span> Оператор вправе продолжить обработку без согласия Пользователя при наличии оснований, предусмотренных частями 2 статьи 9 и пунктами 2–11 части 1 статьи 6 Закона № 152-ФЗ, — в частности, для исполнения договора, защиты своих законных интересов или исполнения обязанностей, возложенных законодательством.</li>
+          <li><span class="n">10.3</span> Отзыв согласия влечёт прекращение направления материалов и сообщений; ранее полученные Пользователем материалы остаются у него.</li>
+        </ul>
+      </section>
+
+      <!-- 11 -->
+      <section class="s" id="s11">
+        <h2 class="sh"><span class="num">11</span> Меры защиты данных</h2>
+        <p>Оператор принимает правовые, организационные и технические меры, необходимые для защиты персональных данных от неправомерного или случайного доступа, уничтожения, изменения, блокирования, копирования, предоставления и распространения, в том числе:</p>
+        <ul class="dots">
+          <li>назначает лицо, ответственное за организацию обработки персональных данных;</li>
+          <li>издаёт локальные акты по вопросам обработки и защиты персональных данных и знакомит с ними работников и привлечённых лиц;</li>
+          <li>ограничивает круг лиц, имеющих доступ к персональным данным, и обеспечивает их обязательство о конфиденциальности;</li>
+          <li>применяет средства защиты учётных записей, включая парольную защиту и двухфакторную аутентификацию там, где это технически возможно;</li>
+          <li>обеспечивает резервное копирование и восстановление данных;</li>
+          <li>осуществляет внутренний контроль соответствия обработки требованиям законодательства и оценивает вред, который может быть причинён субъектам;</li>
+          <li>уведомляет уполномоченный орган об инцидентах, повлёкших неправомерную передачу персональных данных, в сроки, установленные законодательством.</li>
+        </ul>
+      </section>
+
+      <!-- 12 -->
+      <section class="s" id="s12">
+        <h2 class="sh"><span class="num">12</span> Файлы cookie и технические данные</h2>
+        <ul class="pp">
+          <li><span class="n">12.1</span> Сайт может использовать файлы cookie — небольшие текстовые файлы, сохраняемые браузером, — а также автоматически получать технические данные, указанные в разделе 5.</li>
+          <li><span class="n">12.2</span> Cookie применяются для корректной работы сайта, запоминания настроек и сбора обезличенной статистики посещаемости. Такие данные обрабатываются в обезличенном виде и не используются для установления личности.</li>
+          <li><span class="n">12.3</span> Пользователь может запретить сохранение cookie в настройках браузера или удалить сохранённые файлы. Часть функций сайта при этом может работать некорректно.</li>
+          <li><span class="n">12.4</span> Продолжая пользоваться сайтом с включёнными cookie, Пользователь выражает согласие на их использование на условиях настоящей Политики.</li>
+        </ul>
+      </section>
+
+      <!-- 13 -->
+      <section class="s" id="s13">
+        <h2 class="sh"><span class="num">13</span> Изменение Политики</h2>
+        <ul class="pp">
+          <li><span class="n">13.1</span> Оператор вправе вносить изменения в настоящую Политику. Новая редакция вступает в силу с момента её размещения по адресу <a href="https://guides.blackandhoney.ru/privacy-policy">guides.blackandhoney.ru/privacy-policy</a>, если иное не предусмотрено самой редакцией.</li>
+          <li><span class="n">13.2</span> Дата действующей редакции указана в начале документа. Рекомендуем периодически знакомиться с актуальной версией.</li>
+          <li><span class="n">13.3</span> К настоящей Политике и отношениям между Пользователем и Оператором применяется право Российской Федерации.</li>
+        </ul>
+      </section>
+
+      <!-- 14 -->
+      <section class="s" id="s14">
+        <h2 class="sh"><span class="num">14</span> Реквизиты Оператора</h2>
+        <p>По любым вопросам об обработке персональных данных, а также для реализации прав, предусмотренных разделом 9, обращайтесь к Оператору:</p>
+        <div class="req">
+          <h3>Оператор персональных данных</h3>
+          <dl>
+            <dt>Наименование</dt>
+            <dd>Индивидуальный предприниматель Бегинин Кирилл Олегович</dd>
+            <dt>ИНН</dt>
+            <dd>645206474630</dd>
+            <dt>ОГРНИП</dt>
+            <dd>319645100072740</dd>
+            <dt>Адрес для корреспонденции</dt>
+            <dd>410012, г. Саратов, ул. Зарубина, д. 124/130, кв. 105</dd>
+            <dt>Электронная почта</dt>
+            <dd><a href="mailto:717101@bk.ru">717101@bk.ru</a></dd>
+            <dt>Сайт</dt>
+            <dd><a href="https://guides.blackandhoney.ru">guides.blackandhoney.ru</a></dd>
+          </dl>
+        </div>
+        <p class="stamp">Редакция от 11 августа 2026 г. Дата публикации — 11 августа 2026 г.</p>
+      </section>
+
+    </div><!-- /card -->
+  </div>
+</div>
+
+<!-- ============ ФУТЕР ============ -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <div class="wordmark">Black<span>&amp;</span>Honey</div>
+      <p style="margin-top:12px;font-size:.94rem;max-width:34ch">Ремонт без переделок, без слёз и без переплат — от практикующих дизайнеров.</p>
+      <div class="foot-links">
+        <a href="/">На главную</a>
+        <a href="/privacy-policy">Политика обработки персональных данных</a>
+      </div>
+    </div>
+    <div class="foot-right">
+      <b>blackandhoney.ru</b><br>
+      Студия дизайна интерьеров<br>
+      ИП Бегинин К. О., ИНН 645206474630
+    </div>
+  </div>
+  <div class="foot-strip" aria-hidden="true">
+    <i style="background:var(--sw-cream)"></i>
+    <i style="background:var(--sw-greige)"></i>
+    <i style="background:var(--sw-green)"></i>
+    <i style="background:var(--honey)"></i>
+    <i style="background:var(--terra)"></i>
+  </div>
+</footer>
+
+</body>
+</html>
