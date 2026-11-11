@@ -51,16 +51,24 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 header .btn{padding:11px 20px;font-size:15px;box-shadow:none}
 
 /* первый экран */
-.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;padding:0}
-.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,21,19,.05) 0%,rgba(23,21,19,.25) 40%,rgba(23,21,19,.82) 100%)}
-.hero .wrap{position:relative;z-index:2;width:100%;padding-top:120px;padding-bottom:64px}
+/* v6: текст на однотонном фоне, рендер рядом без затемнения (Анна, 11.11) */
+.hero{background:#1F1D1B;color:#fff;padding:56px 0 64px}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:52px;align-items:center}
 .hero .kicker{color:var(--honey)}
-.hero h1{color:#fff;font-size:clamp(36px,6.4vw,72px);max-width:880px;margin:18px 0 20px;letter-spacing:-.02em}
-.hero .lead{color:rgba(255,255,255,.9);max-width:640px;font-size:clamp(17px,2vw,20px)}
-.hero .cta{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px}
-.hero .note{font-size:15px;color:rgba(255,255,255,.85);max-width:360px;line-height:1.45}
-.hero .note b{color:var(--honey)}
+.hero h1{color:#fff;font-size:clamp(32px,3.7vw,46px);margin:18px 0 20px;letter-spacing:-.02em}
+.hero .lead{color:rgba(255,255,255,.88);max-width:560px;font-size:clamp(17px,1.6vw,19px)}
+.hero .cta{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px}
+.hero .note{flex-basis:100%;font-size:15px;color:rgba(255,255,255,.72);max-width:520px;line-height:1.5;margin-top:4px}
+.hero-media{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:#2A2724;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.hero-media video{width:100%;height:100%;object-fit:cover}
+.hero-media figcaption{position:absolute;left:14px;bottom:14px;background:rgba(23,21,19,.72);color:#fff;font-size:13px;padding:6px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+/* запасной вариант фона — светлый беж из палитры капсулы: <section class="hero light"> */
+.hero.light{background:#E9DFD2;color:var(--ink)}
+.hero.light h1{color:var(--ink)}
+.hero.light .kicker{color:var(--terra-d)}
+.hero.light .lead{color:var(--text)}
+.hero.light .note{color:var(--muted)}
+.hero.light .btn.ghost{color:var(--ink);border-color:rgba(23,21,19,.55)}
 
 /* блок 2 */
 .stuck{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
@@ -230,7 +238,8 @@ ol.num b{color:var(--ink)}
 
 @media (max-width:940px){
   section{padding:64px 0}
-  .stuck,.how-grid,.sums-grid,.op,.deal-card{grid-template-columns:1fr}
+  .stuck,.how-grid,.sums-grid,.op,.deal-card,.hero .wrap{grid-template-columns:1fr}
+  .hero .wrap{gap:36px}
   .cards,.cmp{grid-template-columns:1fr 1fr}
   .deal-card{padding:36px 26px;gap:28px}
   .stuck{gap:28px}
@@ -239,7 +248,7 @@ ol.num b{color:var(--ink)}
   body{font-size:16px}
   .cards,.cmp{grid-template-columns:1fr}
   header .btn{padding:9px 14px;font-size:13.5px}
-  .hero{min-height:92vh}
+  .hero{padding:40px 0 48px}
   .hero .btn{width:100%}
   .pop{width:220px}
   .dot{width:26px;height:26px;margin:-13px 0 0 -13px}
@@ -259,16 +268,21 @@ ol.num b{color:var(--ink)}
 
 <!-- 1. Первый экран -->
 <section class="hero" id="top">
-  <video autoplay muted loop playsinline poster="img/d1b86a3f7478-1920.webp"><source src="img/kg-1920.mp4" type="video/mp4" media="(min-width: 700px)"><source src="img/kg-960.mp4" type="video/mp4"></video>
   <div class="wrap">
-    <div class="kicker">Капсула №1 · современный стиль</div>
-    <h1>Квартира как с картинки: мы всё подобрали, вам остаётся купить</h1>
-    <p class="lead">Мы, дизайнеры Black&nbsp;&amp;&nbsp;Honey, спроектировали евродвушку 46 м² и подобрали для неё каждую вещь — от пола до посуды. Всё собрано в личном кабинете по комнатам: у каждой вещи есть цена и ссылка на Ozon, Wildberries или «Лемана ПРО». Открываете комнату — и покупаете по списку.</p>
-    <div class="cta">
-      <a class="btn" href="https://t.me/Interior_Finds_bot?start=landing">Получить пробный доступ</a>
-      <a class="btn ghost pay-on" href="https://t.me/Interior_Finds_bot?start=pay">Купить капсулу</a>
-      <p class="note">Пробный доступ бесплатный: все комнаты, по 5 вещей в каждой — с ценами и ссылками, и бюджет под вашу площадь.</p>
+    <div class="hero-text">
+      <div class="kicker">Капсула №1 · современный стиль</div>
+      <h1>Готовый интерьер квартиры от дизайнеров — покупаете по списку</h1>
+      <p class="lead">Мы обставили евродвушку 46&nbsp;м² от пола до посуды: 177&nbsp;вещей в одной палитре, у каждой есть цена и ссылка на Ozon, Wildberries или «Лемана ПРО». Не нужно неделями листать Pinterest и гадать, подойдёт ли диван к полу.</p>
+      <div class="cta">
+        <a class="btn" href="https://t.me/Interior_Finds_bot?start=landing">Получить пробный доступ</a>
+        <a class="btn ghost pay-on" href="https://t.me/Interior_Finds_bot?start=pay">Купить капсулу</a>
+        <p class="note">Пробный доступ бесплатный. Бот в Telegram пришлёт ссылку на кабинет: там открыты все комнаты, а в каждой — 5&nbsp;вещей с ценой и ссылкой на магазин. Впишите свою площадь, и кабинет посчитает бюджет каждой комнаты.</p>
+      </div>
     </div>
+    <figure class="hero-media">
+      <video autoplay muted loop playsinline poster="img/kg-poster.webp"><source src="img/kg-1920.mp4" type="video/mp4" media="(min-width: 700px)"><source src="img/kg-960.mp4" type="video/mp4"></video>
+      <figcaption>Кухня-гостиная из капсулы</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -276,7 +290,7 @@ ol.num b{color:var(--ink)}
 <section class="what">
   <div class="wrap">
     <div class="kicker">Что такое капсула</div>
-    <h2>Готовый интерьер квартиры в вашем личном кабинете</h2>
+    <h2>Как устроена капсула</h2>
     <p class="lead what-intro">Капсула — это квартира, которую мы уже обставили. На визуализациях видно, как она выглядит, а под ними — список всех вещей, из которых она собрана. Кабинет открывается по личной ссылке в браузере, без регистрации и пароля.</p>
     <div class="steps">
       <div class="step">
@@ -462,7 +476,7 @@ ol.num b{color:var(--ink)}
       <details><summary>…у меня другая площадь или планировка?</summary><p>Введите свои метры — отделка пересчитается. Мебель берите той же модели, но своего размера. Как подобрать размер, рассказано в главе гида про подгонку — она в полной капсуле.</p></details>
       <details><summary>…дома выйдет не так красиво, как на картинке?</summary><p>На визуализации те же вещи, что в списке, у каждой есть фото товара из магазина. Возьмите пробный доступ и сравните сами: нажмите на точку на картинке — откроется та самая вещь.</p></details>
       <details><summary>…вещь пропадёт из магазина?</summary><p>Подберём замену — это входит в капсулу, пока открыт доступ.</p></details>
-      <details><summary>…капсула не подойдёт?</summary><p>Сначала посмотрите пробный доступ: все комнаты, по 5 вещей в каждой с ценами и ссылками и бюджет под вашу площадь. Решайте, когда поймёте, ваше это или нет.</p></details>
+      <details><summary>…капсула не подойдёт?</summary><p>Сначала откройте пробный доступ: посмотрите комнаты, нажмите на вещи, впишите свою площадь. Решайте, когда поймёте, ваше это или нет.</p></details>
       <details><summary>…я живу не в России?</summary><p>Пока оплатить можно только картой российского банка, и ссылки ведут в российские магазины.</p></details>
       <details><summary>В каких магазинах покупать?</summary><p>Больше всего вещей на Ozon — 72. Ещё 37 в «Лемана ПРО», 26 на Wildberries, а технику мы брали в DNS.</p></details>
       <details><summary>Что с кухней?</summary><p>Модули, столешница и мойка есть в списке, они продаются в «Лемана ПРО». Натяжной потолок, тонированные зеркала и шкаф над инсталляцией делают на заказ — в капсуле написано, что сказать мастеру.</p></details>
@@ -488,8 +502,8 @@ ol.num b{color:var(--ink)}
         <h3 style="color:#fff;margin-bottom:10px">Как получить доступ</h3>
         <p class="pay-on">Нажмите «Купить» — бот в Telegram пришлёт личную ссылку сразу на оплату. После оплаты капсула откроется, без регистрации и пароля.</p>
         <a class="btn honey pay-on" href="https://t.me/Interior_Finds_bot?start=pay">Купить капсулу — 3&nbsp;990&nbsp;₽</a>
-        <p class="pay-on" style="margin-top:22px">Хотите сначала посмотреть — возьмите пробный доступ. Он бесплатный: все комнаты, по 5 вещей в каждой с ценами и ссылками.</p>
-        <p class="pay-off-only">Нажмите кнопку — бот в Telegram пришлёт личную ссылку. Кабинет откроется сразу, без регистрации и пароля. Пробный доступ бесплатный: все комнаты, по 5 вещей в каждой с ценами и ссылками.</p>
+        <p class="pay-on" style="margin-top:22px">Хотите сначала посмотреть — возьмите пробный доступ. Он бесплатный: открыты все комнаты, а в каждой — 5 вещей с ценой и ссылкой на магазин.</p>
+        <p class="pay-off-only">Нажмите кнопку — бот в Telegram пришлёт личную ссылку. Кабинет откроется сразу, без регистрации и пароля. Пробный доступ бесплатный: открыты все комнаты, а в каждой — 5 вещей с ценой и ссылкой на магазин.</p>
         <a class="btn ghost" href="https://t.me/Interior_Finds_bot?start=landing">Получить пробный доступ</a>
       </div>
     </div>
@@ -502,7 +516,7 @@ ol.num b{color:var(--ink)}
     <span>ИП Бегинин К. О. · <a href="/privacy-policy">Политика обработки данных</a></span>
   </div>
 </footer>
-<p class="mock">Макет 06.11, v5 — пробный доступ, две кнопки, скриншоты нового кабинета, суммы сверены с кабинетом 06.11.</p>
+<p class="mock">Макет 11.11, v6 — первый экран на однотонном фоне, ролик рядом без затемнения; заголовок называет, что это; подпись у кнопки — что будет после нажатия.</p>
 
 <script>
 (function(){
