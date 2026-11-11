@@ -60,7 +60,8 @@ header .btn{padding:11px 20px;font-size:15px;box-shadow:none}
 .hero .cta{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px}
 .hero .note{flex-basis:100%;font-size:15px;color:rgba(255,255,255,.72);max-width:520px;line-height:1.5;margin-top:4px}
 .hero-media{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:#2A2724;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
-.hero-media video{width:100%;height:100%;object-fit:cover}
+.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s cubic-bezier(.22,1,.36,1)}
+.hero-media video.on{opacity:1}
 .hero-media figcaption{position:absolute;left:14px;bottom:14px;background:rgba(23,21,19,.72);color:#fff;font-size:13px;padding:6px 12px;border-radius:999px;backdrop-filter:blur(6px)}
 /* запасной вариант фона — светлый беж из палитры капсулы: <section class="hero light"> */
 .hero.light{background:#E9DFD2;color:var(--ink)}
@@ -74,7 +75,11 @@ header .btn{padding:11px 20px;font-size:15px;box-shadow:none}
 .stuck{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .stuck .kicker{color:var(--terra)}
 .stuck img{border-radius:var(--r);width:100%;aspect-ratio:1.24;object-fit:cover}
-.stuck .accent{margin-top:22px;padding:18px 22px;background:var(--card);border-left:4px solid var(--honey);border-radius:0 12px 12px 0;font-weight:600;color:var(--ink)}
+.stuck .accent{margin-top:20px;font-weight:700;font-size:19px;line-height:1.5;color:var(--ink)}
+/* v7: знакомая сцена сразу после первого экрана — заголовок слева, текст справа, без картинки */
+.scene-block{padding:72px 0 64px}
+.scene-block .stuck{align-items:start}
+.scene-block h2{margin-bottom:0}
 
 /* блок 3: картинка с точками */
 .how{background:var(--card)}
@@ -118,6 +123,7 @@ table.money tr.total td.s{color:var(--honey);font-size:20px}
 .sums .side p{font-size:17px}
 .sums .big{font-family:Unbounded,sans-serif;color:var(--honey);font-size:26px;font-weight:600;display:block;margin-bottom:4px}
 .sums .tip{margin-top:26px;padding:20px 22px;border-radius:14px;background:rgba(255,200,87,.1);border:1px solid rgba(255,200,87,.35);color:#fff;font-weight:600}
+.sums .tip .btn{display:flex;width:100%;margin-top:16px;padding:14px 18px;font-size:15.5px}
 
 /* блок 5 */
 .fit .kicker{color:var(--terra)}
@@ -224,6 +230,21 @@ ol.num b{color:var(--ink)}
 .phone{border-radius:30px;border:8px solid var(--ink);background:var(--ink);overflow:hidden;aspect-ratio:390/600;box-shadow:0 22px 40px -22px rgba(23,21,19,.55)}
 .phone img{width:100%;height:100%;object-fit:cover;object-position:top}
 .what-bottom{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px;align-items:center}
+/* v7: шаг 1 — четыре комнаты визуализациями */
+.step-rooms{margin-top:36px}
+.step-head{display:flex;gap:16px;align-items:flex-start;max-width:760px}
+.step-head .step-n{position:static;flex:none}
+.step-head h3{margin:6px 0 6px}
+.step-head p{font-size:16px;color:var(--muted)}
+.rooms4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.room{position:relative;display:block;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;text-decoration:none;color:#fff;background:#2A2724}
+.room img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.22,1,.36,1)}
+.room:hover img{transform:scale(1.04)}
+.room::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(rgba(23,21,19,0),rgba(23,21,19,.74))}
+.room .rn{position:absolute;left:16px;bottom:36px;z-index:2;font-weight:800;font-size:18px;line-height:1.2}
+.room .rc{position:absolute;left:16px;bottom:14px;z-index:2;font-size:14px;color:rgba(255,253,250,.86)}
+.steps-2{grid-template-columns:1fr 1fr;margin-top:48px}
+.steps-2 .phone{max-width:300px}
 .facts-line{font-size:17px;margin-bottom:14px}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
 .tab{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:999px;padding:9px 18px;font:600 15px Manrope,sans-serif;cursor:pointer}
@@ -233,8 +254,8 @@ ol.num b{color:var(--ink)}
 .scene img#scene-img{width:100%;height:auto;aspect-ratio:auto;object-fit:fill}
 #scene{margin:0 auto}
 .pop .note{display:block;margin-top:8px;font-size:12.5px;color:var(--muted)}
-@media (max-width:940px){.steps{grid-template-columns:1fr 1fr}.what-bottom{grid-template-columns:1fr}}
-@media (max-width:560px){.steps{grid-template-columns:1fr;gap:36px}.phone{max-width:300px;margin:0 auto}.step-n{left:calc(50% - 170px)}}
+@media (max-width:940px){.steps{grid-template-columns:1fr 1fr}.what-bottom{grid-template-columns:1fr}.rooms4{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.rooms4{gap:10px}.room .rn{font-size:15.5px;left:12px;bottom:31px}.room .rc{left:12px;bottom:11px;font-size:13px}.steps{grid-template-columns:1fr;gap:36px}.phone{max-width:300px;margin:0 auto}.step-n{left:calc(50% - 170px)}}
 
 @media (max-width:940px){
   section{padding:64px 0}
@@ -272,17 +293,32 @@ ol.num b{color:var(--ink)}
     <div class="hero-text">
       <div class="kicker">Капсула №1 · современный стиль</div>
       <h1>Готовый интерьер квартиры от дизайнеров — покупаете по списку</h1>
-      <p class="lead">Мы обставили евродвушку 46&nbsp;м² от пола до посуды: 177&nbsp;вещей в одной палитре, у каждой есть цена и ссылка на Ozon, Wildberries или «Лемана ПРО». Не нужно неделями листать Pinterest и гадать, подойдёт ли диван к полу.</p>
+      <p class="lead">Мы обставили евродвушку 46&nbsp;м²: кухню-гостиную, спальню, прихожую и санузел. 177&nbsp;вещей от пола до посуды в одной палитре, у каждой есть цена и ссылка на Ozon, Wildberries или «Лемана ПРО». Не нужно неделями листать Pinterest и гадать, подойдёт ли диван к полу.</p>
       <div class="cta">
         <a class="btn" href="https://t.me/Interior_Finds_bot?start=landing">Получить пробный доступ</a>
         <a class="btn ghost pay-on" href="https://t.me/Interior_Finds_bot?start=pay">Купить капсулу</a>
-        <p class="note">Пробный доступ бесплатный. Бот в Telegram пришлёт ссылку на кабинет: там открыты все комнаты, а в каждой — 5&nbsp;вещей с ценой и ссылкой на магазин. Впишите свою площадь, и кабинет посчитает бюджет каждой комнаты.</p>
+        <p class="note">Пробный доступ бесплатный. Бот в Telegram пришлёт ссылку на кабинет: там открыты все комнаты, а в каждой — 5&nbsp;вещей с ценой и ссылкой на магазин.</p>
       </div>
     </div>
     <figure class="hero-media">
-      <video autoplay muted loop playsinline poster="img/kg-poster.webp"><source src="img/kg-1920.mp4" type="video/mp4" media="(min-width: 700px)"><source src="img/kg-960.mp4" type="video/mp4"></video>
+      <video class="on" autoplay muted playsinline preload="auto" poster="img/kg-poster.webp" data-cap="Кухня-гостиная из капсулы"><source src="img/kg-1920.mp4" type="video/mp4" media="(min-width: 700px)"><source src="img/kg-960.mp4" type="video/mp4"></video>
+      <video muted playsinline preload="auto" poster="img/sp-poster.webp" data-cap="Спальня из капсулы"><source src="img/sp-1920.mp4" type="video/mp4" media="(min-width: 700px)"><source src="img/sp-960.mp4" type="video/mp4"></video>
       <figcaption>Кухня-гостиная из капсулы</figcaption>
     </figure>
+  </div>
+</section>
+
+<!-- 2. Знакомая сцена (v7: сразу после первого экрана) -->
+<section class="scene-block">
+  <div class="wrap stuck">
+    <div>
+      <div class="kicker">Знакомая сцена</div>
+      <h2>Стены почти готовы, а что купить — непонятно</h2>
+    </div>
+    <div>
+      <p class="lead">В телефоне сотни сохранённых комнат. Открываете маркетплейс — там тысячи диванов «в современном стиле», и поди пойми, какой из них будет смотреться как на картинке и подойдёт ли он к вашему полу. Вкладки копятся, решение откладывается: неделя, вторая, месяц.</p>
+      <p class="accent">Так бывает почти у каждого, кто делает ремонт впервые, и вкус здесь ни при чём. Сочетать сотню вещей между собой — работа дизайнера. Мы её уже сделали, вам остаётся купить.</p>
+    </div>
   </div>
 </section>
 
@@ -292,13 +328,22 @@ ol.num b{color:var(--ink)}
     <div class="kicker">Что такое капсула</div>
     <h2>Как устроена капсула</h2>
     <p class="lead what-intro">Капсула — это квартира, которую мы уже обставили. На визуализациях видно, как она выглядит, а под ними — список всех вещей, из которых она собрана. Кабинет открывается по личной ссылке в браузере, без регистрации и пароля.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="phone"><img src="img/cab-trial-room.webp" alt="Кабинет капсулы: спальня, визуализация с точками и бюджет комнаты" loading="lazy"></div>
+    <div class="step-rooms">
+      <div class="step-head">
         <div class="step-n">1</div>
-        <h3>Выбираете комнату</h3>
-        <p>Кухня-гостиная, спальня, прихожая или санузел. Наверху — бюджет комнаты и визуализация, на которой каждая вещь отмечена точкой.</p>
+        <div>
+          <h3>Выбираете комнату — их четыре</h3>
+          <p>Кухня-гостиная, спальня, прихожая и санузел. В кабинете у каждой комнаты — визуализация, где каждая вещь отмечена точкой, и бюджет комнаты.</p>
+        </div>
       </div>
+      <div class="rooms4">
+        <a class="room" href="#rooms" data-room="0"><img src="img/d1b86a3f7478-1280.webp" alt="Кухня-гостиная капсулы: ТВ-зона и обеденный стол" loading="lazy"><span class="rn">Кухня-гостиная</span><span class="rc">81 вещь</span></a>
+        <a class="room" href="#rooms" data-room="1"><img src="img/ba1e5e3e7f36-1280.webp" alt="Спальня капсулы: кровать, тумбы и шторы" loading="lazy"><span class="rn">Спальня</span><span class="rc">43 вещи</span></a>
+        <a class="room" href="#rooms" data-room="2"><img src="img/11b4db68c724-1280.webp" alt="Прихожая капсулы: консоль и зеркало" loading="lazy"><span class="rn">Прихожая</span><span class="rc">17 вещей</span></a>
+        <a class="room" href="#rooms" data-room="3"><img src="img/f8522f7b6e08-1280.webp" alt="Санузел капсулы: тумба с раковиной и душ" loading="lazy"><span class="rn">Санузел</span><span class="rc">28 вещей</span></a>
+      </div>
+    </div>
+    <div class="steps steps-2">
       <div class="step">
         <div class="phone"><img src="img/cab-trial-item.webp" alt="Кабинет капсулы: карточка кровати — цена, магазин и кнопка «Купить»" loading="lazy"></div>
         <div class="step-n">2</div>
@@ -309,7 +354,7 @@ ol.num b{color:var(--ink)}
         <div class="phone"><img src="img/cab-trial-budget.webp" alt="Кабинет капсулы: бюджет спальни под площадь 40 м²" loading="lazy"></div>
         <div class="step-n">3</div>
         <h3>Вписываете свою площадь</h3>
-        <p>Кабинет пересчитает отделку в упаковках и покажет, во сколько комната выйдет у вас.</p>
+        <p>Кабинет пересчитает отделку в упаковках и покажет бюджет всей квартиры под ваши метры.</p>
       </div>
     </div>
     <div class="what-bottom">
@@ -336,19 +381,6 @@ ol.num b{color:var(--ink)}
   </div>
 </section>
 
-<!-- 2. Знакомая сцена -->
-<section>
-  <div class="wrap stuck">
-    <div>
-      <div class="kicker">Знакомая сцена</div>
-      <h2>Стены почти готовы, а что купить — непонятно</h2>
-      <p class="lead">В телефоне сотни сохранённых комнат. Открываете маркетплейс — там тысячи диванов «в современном стиле», и поди пойми, какой из них будет смотреться как на картинке и подойдёт ли он к вашему полу. Вкладки копятся, решение откладывается: неделя, вторая, месяц.</p>
-      <p class="accent">Так бывает почти у каждого, кто делает ремонт впервые, и вкус здесь ни при чём. Сочетать сотню вещей между собой — работа дизайнера. Мы её уже сделали, вам остаётся купить.</p>
-    </div>
-    <img src="img/9eda933242c8-1280.webp" alt="Гостиная капсулы: модульный диван и торшер" loading="lazy">
-  </div>
-</section>
-
 <!-- 3. Кто мы -->
 <section class="who">
   <div class="wrap who-grid">
@@ -362,7 +394,7 @@ ol.num b{color:var(--ink)}
 </section>
 
 <!-- 5. Посмотрите комнаты -->
-<section class="how">
+<section class="how" id="rooms">
   <div class="wrap">
     <div class="kicker">Посмотрите комнаты</div>
     <h2>Четыре комнаты в одной палитре</h2>
@@ -398,8 +430,8 @@ ol.num b{color:var(--ink)}
       </div>
       <div class="side">
         <p><span class="big">≈ 818 000 ₽</span>если чистовая отделка уже есть</p>
-        <p style="margin-top:22px"><span class="big">≈ 224 000 ₽</span>техника — мы вынесли её отдельно, по желанию</p>
-        <p class="tip">Хорошая новость: покупать всё сразу не нужно. Начните с комнаты, которая горит, остальное докупайте по мере сил.</p>
+        <p style="margin-top:22px"><span class="big">≈ 224 000 ₽</span>техника</p>
+        <div class="tip"><p>Площадь другая? Впишите свои метры в пробном доступе — кабинет пересчитает отделку и бюджет всей квартиры.</p><a class="btn honey" href="https://t.me/Interior_Finds_bot?start=landing">Посчитать под мою площадь</a></div>
         <p class="muted" style="color:rgba(255,255,255,.55);font-size:14px;margin-top:16px">У каждой вещи стоит дата цены: в магазине цена могла измениться.</p>
       </div>
     </div>
@@ -429,7 +461,7 @@ ol.num b{color:var(--ink)}
       <div class="col free">
         <h3>Пробный доступ — бесплатно</h3>
         <ul>
-          <li>Все комнаты и визуализации, бюджет каждой комнаты под вашу площадь</li>
+          <li>Все комнаты и визуализации, бюджет каждой комнаты, отделка и итог по квартире под вашу площадь</li>
           <li>По 5 вещей в каждой комнате — с ценами и ссылками
             <div class="chips"><span class="chip">диван</span><span class="chip">кровать</span><span class="chip">люстра</span><span class="chip">тумба с раковиной</span><span class="chip">…</span></div>
           </li>
@@ -513,10 +545,10 @@ ol.num b{color:var(--ink)}
 <footer>
   <div class="wrap">
     <span>black&amp;honey · Капсула №1 · современный стиль</span>
-    <span>ИП Бегинин К. О. · <a href="/privacy-policy">Политика обработки данных</a></span>
+    <span>ИП Бегинин Кирилл Олегович · ИНН 645206474630 · ОГРНИП 319645100072740 · <a href="mailto:717101@bk.ru">717101@bk.ru</a></span>
+    <span><a href="/privacy-policy">Политика обработки данных</a></span>
   </div>
 </footer>
-<p class="mock">Макет 11.11, v6 — первый экран на однотонном фоне, ролик рядом без затемнения; заголовок называет, что это; подпись у кнопки — что будет после нажатия.</p>
 
 <script>
 (function(){
@@ -567,7 +599,31 @@ ol.num b{color:var(--ink)}
     }
     pop.classList.add('show'); place(b);
   });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-room]'), function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); tabs.children[+a.dataset.room].click(); document.getElementById('rooms').scrollIntoView({behavior:'smooth'}); });
+  });
   show(1); // спальня первой: на ней все три открытые вещи в кадре
+})();
+</script>
+<script>
+/* v7: два ролика по очереди с плавной сменой — без обрыва на повторе */
+(function(){
+  var box = document.querySelector('.hero-media'); if (!box) return;
+  var vs = Array.prototype.slice.call(box.querySelectorAll('video')), cap = box.querySelector('figcaption'), cur = 0, busy = false;
+  if (vs.length < 2) { if (vs[0]) vs[0].loop = true; return; }
+  function go(){
+    if (busy) return; busy = true;
+    var a = vs[cur], n = (cur + 1) % vs.length, b = vs[n];
+    try { b.currentTime = 0; } catch(e) {}
+    var p = b.play(); if (p && p.catch) p.catch(function(){});
+    b.classList.add('on'); a.classList.remove('on');
+    cap.textContent = b.dataset.cap; cur = n;
+    setTimeout(function(){ a.pause(); busy = false; }, 1100);
+  }
+  vs.forEach(function(v, k){
+    v.addEventListener('timeupdate', function(){ if (k === cur && v.duration && v.currentTime > v.duration - 1) go(); });
+    v.addEventListener('ended', function(){ if (k === cur) go(); });
+  });
 })();
 </script>
 </body>
