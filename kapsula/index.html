@@ -268,6 +268,8 @@ ol.num b{color:var(--ink)}
 .scene img#scene-img{width:100%;height:auto;aspect-ratio:auto;object-fit:fill}
 #scene{margin:0 auto}
 .pop .note{display:block;margin-top:8px;font-size:12.5px;color:var(--muted)}
+.pop .gt{display:block;margin-bottom:8px}
+.pop .locked.more{display:block;margin-top:8px}
 @media (max-width:940px){.steps{grid-template-columns:1fr 1fr}.what-bottom{grid-template-columns:1fr}.rooms4{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.rooms4{gap:10px}.room .rn{font-size:15.5px;left:12px;bottom:31px}.room .rc{left:12px;bottom:11px;font-size:13px}.steps{grid-template-columns:1fr;gap:36px}.phone{max-width:260px;margin:0 auto}.step-n{left:calc(50% - 170px)}}
 
@@ -358,10 +360,10 @@ ol.num b{color:var(--ink)}
         </div>
       </div>
       <div class="rooms4">
-        <a class="room" href="#rooms" data-room="0"><img src="img/d1b86a3f7478-1280.webp" alt="Кухня-гостиная капсулы: ТВ-зона и обеденный стол" loading="lazy"><span class="rn">Кухня-гостиная</span><span class="rc">81 вещь</span></a>
-        <a class="room" href="#rooms" data-room="1"><img src="img/ba1e5e3e7f36-1280.webp" alt="Спальня капсулы: кровать, тумбы и шторы" loading="lazy"><span class="rn">Спальня</span><span class="rc">43 вещи</span></a>
-        <a class="room" href="#rooms" data-room="2"><img src="img/11b4db68c724-1280.webp" alt="Прихожая капсулы: консоль и зеркало" loading="lazy"><span class="rn">Прихожая</span><span class="rc">17 вещей</span></a>
-        <a class="room" href="#rooms" data-room="3"><img src="img/f8522f7b6e08-1280.webp" alt="Санузел капсулы: тумба с раковиной и душ" loading="lazy"><span class="rn">Санузел</span><span class="rc">28 вещей</span></a>
+        <a class="room" href="#rooms" data-room="0"><img src="img/27e5911d947f-1280.webp" alt="Кухня-гостиная капсулы: ТВ-зона, кресло и обеденный стол" loading="lazy"><span class="rn">Кухня-гостиная</span><span class="rc">81 вещь</span></a>
+        <a class="room" href="#rooms" data-room="1"><img src="img/e50b7ccdb591-1280.webp" alt="Спальня капсулы: кровать, шкаф, шторы и люстра" loading="lazy"><span class="rn">Спальня</span><span class="rc">43 вещи</span></a>
+        <a class="room" href="#rooms" data-room="2"><img src="img/3de2f4436c7a-1280.webp" alt="Прихожая капсулы: консоль и зеркало" loading="lazy"><span class="rn">Прихожая</span><span class="rc">17 вещей</span></a>
+        <a class="room" href="#rooms" data-room="3"><img src="img/9ebd1bd7004c-1280.webp" alt="Санузел капсулы: тумба с раковиной и душ" loading="lazy"><span class="rn">Санузел</span><span class="rc">28 вещей</span></a>
       </div>
     </div>
     <div class="steps steps-2">
@@ -380,7 +382,7 @@ ol.num b{color:var(--ink)}
     </div>
     <div class="what-bottom">
       <div class="facts">
-        <p class="facts-line"><b>Внутри:</b> 15 картинок квартиры · 177 вещей · отделка на всю квартиру · пять цветов, которые идут друг к другу</p>
+        <p class="facts-line"><b>Внутри:</b> 12 картинок квартиры · 177 вещей · отделка на всю квартиру · пять цветов, которые идут друг к другу</p>
         <div class="swatches">
           <span class="sw"><i style="background:#F3EEE6"></i>Тёплый белый</span>
           <span class="sw"><i style="background:#DCCDB8"></i>Беж</span>
@@ -573,9 +575,10 @@ ol.num b{color:var(--ink)}
 
 <script>
 (function(){
-  var ROOMS = [{"slug": "kuhnya-gostinaya", "title": "Кухня-гостиная", "img": "img/d1b86a3f7478-1280.webp", "ar": 1.2414, "alt": "Гостиная: ТВ-зона и обеденный стол", "n": 81, "dots": [{"x": 21, "y": 73, "t": "Кресло"}, {"x": 39, "y": 87, "t": "Журнальный столик"}, {"x": 51, "y": 85, "t": "Журнальный столик"}, {"x": 49, "y": 70, "t": "ТВ-тумба"}, {"x": 49, "y": 50, "t": "Телевизор"}, {"x": 83, "y": 82, "t": "Обеденный стол", "o": 1, "n": "Обеденный стол", "p": "14 049 ₽", "s": "Wildberries", "i": "img/d9d8c17aa84a-400.webp"}, {"x": 94, "y": 73, "t": "Стулья"}, {"x": 82, "y": 42, "t": "Подвесной светильник"}, {"x": 83, "y": 64, "t": "Ваза"}, {"x": 22, "y": 94, "t": "Ковёр"}, {"x": 6, "y": 40, "t": "Шторы"}, {"x": 20, "y": 16, "t": "Кондиционер"}]}, {"slug": "spalnya", "title": "Спальня", "img": "img/ba1e5e3e7f36-1280.webp", "ar": 1.2414, "alt": "Кровать с мягким изголовьем", "n": 43, "dots": [{"x": 36, "y": 80, "t": "Кровать", "o": 1, "n": "Кровать", "p": "38 907 ₽", "s": "divan.ru", "i": "img/cd80648f68ea-400.webp"}, {"x": 65, "y": 77, "t": "Прикроватный столик"}, {"x": 13, "y": 73, "t": "Журнальный столик"}, {"x": 38, "y": 18, "t": "Люстра", "o": 1, "n": "Люстра", "p": "10 760 ₽", "s": "Ozon", "i": "img/1c3a7c15c412-400.webp"}, {"x": 65, "y": 41, "t": "Настенный светильник"}, {"x": 18, "y": 84, "t": "Покрывало"}, {"x": 46, "y": 68, "t": "Подушка"}, {"x": 88, "y": 72, "t": "Шторы", "o": 1, "n": "Шторы", "p": "10 779 ₽", "s": "Лемана Про", "i": "img/2cd6e5b21021-400.webp"}, {"x": 46, "y": 41, "t": "Картина"}]}, {"slug": "prihozhaya", "title": "Прихожая", "img": "img/11b4db68c724-1280.webp", "ar": 1.4817, "alt": "Прихожая, ракурс 2", "n": 17, "dots": [{"x": 43, "y": 72, "t": "Консоль", "o": 1, "n": "Консоль", "p": "11 500 ₽", "s": "Ozon", "i": "img/d50dfce81773-400.webp"}, {"x": 68, "y": 55, "t": "Зеркало", "o": 1, "n": "Зеркало", "p": "9 394 ₽", "s": "Wildberries", "i": "img/d1c846338fa1-400.webp"}, {"x": 39, "y": 46, "t": "Настенный светильник", "o": 1, "n": "Настенный светильник", "p": "4 837 ₽", "s": "Ozon", "i": "img/a252b98d448f-400.webp"}, {"x": 34, "y": 22, "t": "Стеновые панели"}, {"x": 52, "y": 25, "t": "Молдинг"}]}, {"slug": "sanuzel", "title": "Санузел", "img": "img/f8522f7b6e08-1280.webp", "ar": 0.8056, "alt": "Тумба с раковиной и душ", "n": 28, "dots": [{"x": 11, "y": 84, "t": "Инсталляция с унитазом"}, {"x": 12, "y": 73, "t": "Гигиенический душ"}, {"x": 8, "y": 30, "t": "Шкаф над инсталляцией"}, {"x": 43, "y": 77, "t": "Тумба с раковиной", "o": 1, "n": "Тумба с раковиной", "p": "47 345 ₽", "s": "Ozon", "i": "img/2325bd3e3119-400.webp"}, {"x": 43, "y": 63, "t": "Смеситель"}, {"x": 43, "y": 47, "t": "Зеркало", "o": 1, "n": "Зеркало", "p": "13 371 ₽", "s": "Ozon", "i": "img/ac5b528d2ee1-400.webp"}, {"x": 26, "y": 44, "t": "Настенный светильник"}, {"x": 73, "y": 45, "t": "Душевая стойка", "o": 1, "n": "Душевая стойка", "p": "7 990 ₽", "s": "Сантехника онлайн", "i": "img/d7a2d48a4078-400.webp"}, {"x": 62, "y": 62, "t": "Душевая дверь"}, {"x": 55, "y": 22, "t": "Плитка на стены"}, {"x": 30, "y": 96, "t": "Плитка на пол"}, {"x": 77, "y": 88, "t": "Душевой трап"}]}];
+  var ROOMS = [{"slug": "kuhnya-gostinaya", "title": "Кухня-гостиная", "img": "img/27e5911d947f-1280.webp", "ar": 1.2414, "alt": "Гостиная: ТВ-зона и обеденная зона", "n": 81, "dots": [{"x": 24, "y": 77, "t": "Кресло"}, {"x": 43, "y": 92, "t": "Журнальные столики", "c": 2}, {"x": 60, "y": 75, "t": "ТВ-тумба"}, {"x": 52, "y": 52, "t": "Телевизор"}, {"x": 21, "y": 17, "t": "Кондиционер"}, {"x": 90, "y": 87, "t": "Обеденный стол", "o": 1, "n": "Обеденный стол", "p": "14 049 ₽", "s": "Wildberries", "i": "img/d9d8c17aa84a-400.webp"}, {"x": 81, "y": 79, "t": "Стулья", "o": 1, "n": "Стулья", "p": "19 191 ₽", "s": "Wildberries", "i": "img/771e51f6c7e9-400.webp"}, {"x": 27, "y": 96, "t": "Ковёр"}, {"x": 87, "y": 34, "t": "Подвесы над столом", "c": 3}, {"x": 90, "y": 71, "t": "На столе", "o": 1, "n": "Ваза", "p": "503 ₽", "s": "Wildberries", "i": "img/1316ba080a5e-400.webp", "g": 5}, {"x": 44, "y": 66, "t": "Декор", "c": 9}, {"x": 11, "y": 50, "t": "Окно", "c": 3}, {"x": 70, "y": 25, "t": "Отделка", "c": 12}]}, {"slug": "spalnya", "title": "Спальня", "img": "img/e50b7ccdb591-1280.webp", "ar": 1.794, "alt": "Спальня целиком", "n": 43, "dots": [{"x": 14, "y": 50, "t": "Шкаф"}, {"x": 40, "y": 22, "t": "Тонированное зеркало"}, {"x": 51, "y": 18, "t": "Люстра", "o": 1, "n": "Люстра", "p": "10 760 ₽", "s": "Ozon", "i": "img/1c3a7c15c412-400.webp"}, {"x": 57, "y": 40, "t": "Картина"}, {"x": 70, "y": 41, "t": "Настенный светильник"}, {"x": 50, "y": 87, "t": "Кровать", "o": 1, "n": "Кровать", "p": "38 907 ₽", "s": "divan.ru", "i": "img/cd80648f68ea-400.webp"}, {"x": 56, "y": 76, "t": "Постель", "c": 7}, {"x": 34, "y": 75, "t": "Журнальный столик", "o": 1, "n": "Журнальный столик", "p": "2 897 ₽", "s": "Яндекс Маркет", "i": "img/6e4071c6bec7-400.webp"}, {"x": 69, "y": 80, "t": "Прикроватный столик"}, {"x": 72, "y": 69, "t": "На тумбочках", "c": 3}, {"x": 85, "y": 40, "t": "Окно", "o": 1, "n": "Шторы", "p": "10 779 ₽", "s": "Лемана Про", "i": "img/2cd6e5b21021-400.webp", "g": 2}, {"x": 27, "y": 35, "t": "Отделка", "c": 9}]}, {"slug": "prihozhaya", "title": "Прихожая", "img": "img/3de2f4436c7a-1280.webp", "ar": 1.5357, "alt": "Прихожая: консоль и зеркало", "n": 17, "dots": [{"x": 24, "y": 55, "t": "Межкомнатная дверь"}, {"x": 46, "y": 45, "t": "Настенный светильник", "o": 1, "n": "Настенный светильник", "p": "4 837 ₽", "s": "Ozon", "i": "img/a252b98d448f-400.webp"}, {"x": 52, "y": 80, "t": "Консоль", "o": 1, "n": "Консоль", "p": "11 500 ₽", "s": "Ozon", "i": "img/d50dfce81773-400.webp"}, {"x": 54, "y": 65, "t": "На консоли", "c": 2}, {"x": 70, "y": 42, "t": "Зеркало", "o": 1, "n": "Зеркало", "p": "9 394 ₽", "s": "Wildberries", "i": "img/d1c846338fa1-400.webp"}, {"x": 80, "y": 25, "t": "Отделка", "c": 10}]}, {"slug": "sanuzel", "title": "Санузел", "img": "img/9ebd1bd7004c-1280.webp", "ar": 0.8, "alt": "Тумба с раковиной и душ", "n": 28, "dots": [{"x": 8, "y": 35, "t": "Шкаф над инсталляцией"}, {"x": 12, "y": 83, "t": "Инсталляция с унитазом"}, {"x": 12, "y": 73, "t": "У унитаза", "c": 3}, {"x": 21, "y": 78, "t": "Корзины", "c": 2}, {"x": 44, "y": 76, "t": "Тумба с раковиной", "o": 1, "n": "Тумба с раковиной", "p": "47 345 ₽", "s": "Ozon", "i": "img/2325bd3e3119-400.webp"}, {"x": 30, "y": 63, "t": "У раковины", "c": 5}, {"x": 43, "y": 45, "t": "Зеркало", "o": 1, "n": "Зеркало", "p": "13 371 ₽", "s": "Ozon", "i": "img/ac5b528d2ee1-400.webp"}, {"x": 27, "y": 43, "t": "Настенный светильник", "o": 1, "n": "Настенный светильник", "p": "2 690 ₽", "s": "Ozon", "i": "img/2e8d650e4953-400.webp"}, {"x": 72, "y": 50, "t": "Душ", "o": 1, "n": "Душевая стойка", "p": "7 990 ₽", "s": "Сантехника онлайн", "i": "img/d7a2d48a4078-400.webp", "g": 4}, {"x": 51, "y": 97, "t": "Коврик"}, {"x": 30, "y": 92, "t": "Отделка", "c": 6}]}];
   var tabs = document.getElementById('tabs'), scene = document.getElementById('scene'),
       img = document.getElementById('scene-img'), pop = document.getElementById('pop');
+  function things(n){ var a = n % 10, b = n % 100; return (a === 1 && b !== 11) ? 'вещь' : (a >= 2 && a <= 4 && (b < 12 || b > 14)) ? 'вещи' : 'вещей'; }
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   function place(btn){
     var sr = scene.getBoundingClientRect(), br = btn.getBoundingClientRect();
@@ -583,6 +586,7 @@ ol.num b{color:var(--ink)}
     var w = pop.offsetWidth, h = pop.offsetHeight;
     var left = Math.min(Math.max(x - w/2, 8), sr.width - w - 8);
     var top = y - h - 18; if (top < 8) top = y + 22;
+    if (top + h > sr.height - 8) top = Math.max(8, sr.height - h - 8);   // v9: окошко группы выше — не вылезать за низ картинки
     pop.style.left = left + 'px'; pop.style.top = top + 'px';
   }
   function show(i){
@@ -614,16 +618,16 @@ ol.num b{color:var(--ink)}
     var cur = Array.prototype.findIndex.call(tabs.children, function(t){ return t.getAttribute('aria-selected') === 'true'; });
     var d = ROOMS[cur].dots[+b.dataset.k];
     if (d.o) {
-      pop.innerHTML = '<div class="row"><img src="' + d.i + '" alt=""><div><b>' + esc(d.n) + '</b><span class="price">' + esc(d.p) + '</span> · ' + esc(d.s) + '</div></div><span class="note">Ссылка на магазин — в пробном доступе</span>';
+      pop.innerHTML = (d.g ? '<b class="gt">' + esc(d.t) + '</b>' : '') + '<div class="row"><img src="' + d.i + '" alt=""><div><b>' + esc(d.n) + '</b><span class="price">' + esc(d.p) + '</span> · ' + esc(d.s) + '</div></div>' + (d.g ? '<span class="locked more">ещё ' + d.g + ' ' + things(d.g) + ' 🔒 в полной капсуле</span>' : '') + '<span class="note">Ссылка на магазин — в пробном доступе</span>';
     } else {
-      pop.innerHTML = '<b>' + esc(d.t) + '</b><span class="locked">🔒 в полной капсуле</span>';
+      pop.innerHTML = '<b>' + esc(d.t) + '</b><span class="locked">' + (d.c ? d.c + ' ' + things(d.c) + ' · ' : '') + '🔒 в полной капсуле</span>';
     }
     pop.classList.add('show'); place(b);
   });
   Array.prototype.forEach.call(document.querySelectorAll('[data-room]'), function(a){
     a.addEventListener('click', function(e){ e.preventDefault(); tabs.children[+a.dataset.room].click(); document.getElementById('rooms').scrollIntoView({behavior:'smooth'}); });
   });
-  show(1); // спальня первой: на ней все три открытые вещи в кадре
+  show(1); // спальня первой: на новом кадре открыты кровать, столик, люстра и шторы
 })();
 </script>
 <script>
