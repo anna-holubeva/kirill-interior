@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Договор-оферта: доступ к «Капсуле №1» — Black &amp; Honey</title>
+<meta name="description" content="Публичная оферта ИП Бегинин Кирилл Олегович: условия доступа к цифровому продукту «Капсула №1» — что входит, цена, срок, оплата и возврат.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+/* ============ ТОКЕНЫ (те же, что на лендинге) ============ */
+:root{
+  --ink:        #1A1A1A;
+  --ink-deep:   #171513;
+  --paper:      #F7F5F2;
+  --paper-2:    #F0EDE8;
+  --page:       #FDFCFA;
+  --honey:      #FFC857;
+  --honey-deep: #E2A93B;
+  --terra:      #E85D3C;
+  --terra-deep: #D14A2A;
+  --terra-soft: #FFF1ED;
+  --muted:      #6B6B6B;
+  --line:       #E3DFD8;
+  --line-dark:  rgba(247,245,242,.14);
+  --paper-dim:  rgba(247,245,242,.74);
+  --paper-dim2: rgba(247,245,242,.55);
+
+  --sw-cream:   #F0E6D4;
+  --sw-greige:  #CFC6B8;
+  --sw-green:   #D6D2BD;
+
+  --wrap: 1120px;
+  --doc: 860px;
+  --radius: 22px;
+  --shadow-sm: 0 2px 10px rgba(26,20,14,.05);
+  --shadow-md: 0 14px 40px rgba(26,20,14,.10);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Manrope',system-ui,-apple-system,sans-serif;
+  font-weight:500;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--honey);color:var(--ink)}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{letter-spacing:-.015em;line-height:1.14;font-weight:800}
+.uf{font-family:'Unbounded',sans-serif}
+
+/* ============ ХЕДЕР ============ */
+.head{
+  position:sticky;top:0;z-index:60;
+  background:var(--ink-deep);
+  border-bottom:1px solid var(--line-dark);
+}
+.head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:70px}
+.wordmark{
+  font-family:'Unbounded',sans-serif;font-weight:600;
+  font-size:1.06rem;letter-spacing:-.02em;color:#FFFDFB;
+}
+.wordmark span{color:var(--honey)}
+.back{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.94rem;font-weight:700;color:var(--paper-dim);
+  text-decoration:none;padding:10px 0;transition:color .18s ease;
+}
+.back:hover{color:var(--honey)}
+.back .arw{font-family:'Unbounded',sans-serif;font-weight:500;transition:transform .18s ease;display:inline-block}
+.back:hover .arw{transform:translateX(-4px)}
+
+/* ============ ШАПКА ДОКУМЕНТА ============ */
+.doc-hero{background:var(--ink-deep);color:var(--page);padding:clamp(48px,7vw,84px) 0 clamp(56px,8vw,92px)}
+.doc-hero .wrap{max-width:calc(var(--doc) + 48px)}
+.kicker{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:.76rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--honey);margin-bottom:20px;
+}
+.kicker::before{content:"";width:34px;height:2px;background:currentColor;border-radius:2px}
+h1{font-size:clamp(1.85rem,4.6vw,3rem);max-width:19ch;margin-bottom:22px}
+.doc-sub{font-size:clamp(1rem,2vw,1.14rem);font-weight:600;color:var(--paper-dim);max-width:58ch}
+.doc-meta{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;
+}
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 16px;border-radius:100px;
+  border:1px solid var(--line-dark);background:rgba(247,245,242,.06);
+  font-size:.86rem;font-weight:700;color:var(--paper-dim);
+}
+.pill b{color:var(--page);font-weight:800}
+
+/* ============ ТЕЛО ДОКУМЕНТА ============ */
+.doc-body{padding:clamp(40px,6vw,72px) 0 clamp(64px,9vw,110px)}
+.doc-body .wrap{max-width:calc(var(--doc) + 48px)}
+.card{
+  background:var(--page);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+  padding:clamp(26px,4.4vw,54px);
+}
+
+/* оглавление */
+.toc{
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:clamp(22px,3.4vw,34px);
+  margin-bottom:clamp(28px,4vw,44px);
+}
+.toc h2{font-size:1.06rem;margin-bottom:18px}
+.toc ol{list-style:none;counter-reset:toc;columns:2;column-gap:36px}
+.toc li{counter-increment:toc;break-inside:avoid;margin-bottom:9px}
+.toc a{
+  display:flex;gap:11px;align-items:baseline;
+  text-decoration:none;font-size:.95rem;font-weight:600;color:#3A3632;
+  transition:color .16s ease;
+}
+.toc a::before{
+  content:counter(toc);
+  font-family:'Unbounded',sans-serif;font-weight:500;font-size:.78rem;
+  color:var(--terra);min-width:15px;
+}
+.toc a:hover{color:var(--terra)}
+
+/* секции */
+section.s{scroll-margin-top:88px}
+section.s + section.s{margin-top:clamp(34px,4.6vw,52px);padding-top:clamp(30px,4vw,44px);border-top:1px solid var(--line)}
+h2.sh{
+  display:flex;gap:14px;align-items:baseline;
+  font-size:clamp(1.24rem,2.6vw,1.62rem);margin-bottom:18px;
+}
+h2.sh .num{
+  font-family:'Unbounded',sans-serif;font-weight:500;
+  font-size:.82em;color:var(--terra);flex:none;
+}
+.doc-body p{margin-bottom:14px;max-width:72ch}
+.doc-body p:last-child{margin-bottom:0}
+.doc-body b,.doc-body strong{font-weight:800}
+.doc-body a{color:var(--terra-deep);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.doc-body a:hover{color:var(--terra)}
+
+/* нумерованные пункты 1.1, 1.2 … */
+ul.pp{list-style:none;margin:0 0 14px}
+ul.pp > li{position:relative;padding-left:46px;margin-bottom:13px;max-width:74ch}
+ul.pp > li > .n{
+  position:absolute;left:0;top:.06em;
+  font-family:'Unbounded',sans-serif;font-weight:400;font-size:.8rem;
+  color:var(--muted);
+}
+ul.pp > li:last-child{margin-bottom:0}
+
+/* маркированные списки */
+ul.dots{list-style:none;margin:6px 0 16px}
+ul.dots li{position:relative;padding-left:24px;margin-bottom:9px;max-width:72ch}
+ul.dots li::before{
+  content:"";position:absolute;left:6px;top:.62em;
+  width:6px;height:6px;border-radius:50%;background:var(--terra);
+}
+ul.dots ul.dots{margin:8px 0 0}
+ul.dots ul.dots li::before{background:var(--line);border:1px solid var(--muted)}
+
+/* определения */
+dl.defs{margin:6px 0 4px}
+dl.defs dt{font-weight:800;margin-top:14px}
+dl.defs dd{margin:0;color:#3A3632;max-width:72ch}
+
+/* таблица «что собираем» */
+.tbl-wrap{overflow-x:auto;margin:8px 0 18px;-webkit-overflow-scrolling:touch}
+table.dt{border-collapse:collapse;width:100%;min-width:520px;font-size:.95rem}
+table.dt th,table.dt td{text-align:left;vertical-align:top;padding:13px 16px;border-bottom:1px solid var(--line)}
+table.dt th{
+  font-weight:800;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);background:var(--paper-2);border-bottom:1px solid var(--line);
+}
+table.dt tr:last-child td{border-bottom:0}
+table.dt td:first-child{font-weight:700;width:38%}
+
+/* врезки */
+.callout{
+  border-radius:18px;padding:22px 24px;margin:20px 0;
+  background:#FFF7E6;border:1px solid #F3DFAE;
+}
+.callout.terra{background:var(--terra-soft);border-color:#F7CFC2}
+.callout h3{font-size:1.02rem;margin-bottom:9px}
+.callout p{margin-bottom:8px}
+.callout p:last-child{margin-bottom:0}
+
+/* реквизиты */
+.req{
+  background:var(--ink-deep);color:var(--page);
+  border-radius:var(--radius);padding:clamp(24px,3.6vw,38px);margin-top:14px;
+}
+.req h3{font-size:1.06rem;margin-bottom:18px;color:#FFFDFB}
+.req dl{display:grid;grid-template-columns:minmax(150px,auto) 1fr;gap:11px 26px}
+.req dt{color:var(--paper-dim2);font-weight:600;font-size:.93rem}
+.req dd{margin:0;font-weight:700}
+.req dd a{color:var(--honey);text-decoration:none}
+.req dd a:hover{text-decoration:underline}
+
+/* подпись-дата */
+.stamp{
+  margin-top:clamp(30px,4vw,44px);padding-top:22px;border-top:1px solid var(--line);
+  font-size:.92rem;color:var(--muted);
+}
+
+/* ============ ФУТЕР ============ */
+.foot{background:var(--ink-deep);color:var(--paper-dim);padding:54px 0 0}
+.foot-in{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start;padding-bottom:38px}
+.foot .wordmark{font-size:1.5rem}
+.foot-right{text-align:right;font-size:.94rem;line-height:1.7}
+.foot-right b{color:var(--page);font-weight:800}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;font-size:.92rem}
+.foot-links a{color:var(--paper-dim);text-decoration:none;border-bottom:1px solid transparent;transition:.16s ease}
+.foot-links a:hover{color:var(--honey);border-bottom-color:currentColor}
+.foot-strip{display:flex;height:12px}
+.foot-strip i{flex:1}
+
+@media(max-width:760px){
+  .toc ol{columns:1}
+  .req dl{grid-template-columns:1fr;gap:4px 0}
+  .req dt{margin-top:12px}
+  .foot-in{flex-direction:column}
+  .foot-right{text-align:left}
+  ul.pp > li{padding-left:38px}
+}
+@media(max-width:560px){
+  .head .wrap{height:62px}
+  .doc-meta{gap:8px}
+  .pill{font-size:.8rem;padding:8px 13px}
+}
+
+@media print{
+  .head,.foot,.back{display:none}
+  body{background:#fff;line-height:1.45}
+  .doc-hero{background:#fff;color:#000;padding:0 0 18pt}
+  .doc-hero .kicker,.doc-sub{color:#444}
+  .pill{border-color:#bbb;color:#333;background:none}
+  .card,.toc{border:0;box-shadow:none;padding:0;background:none}
+  .req{background:none;color:#000;border:1px solid #999;padding:14pt}
+  .req h3,.req dd a{color:#000}
+  .req dt{color:#444}
+  section.s + section.s{border-top:1px solid #ddd}
+  a{color:#000;text-decoration:none}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+ul.pp > li,.req dd{overflow-wrap:break-word}
+.gap{background:#FFF1BF;border:1px dashed #E2B53E;border-radius:6px;padding:0 6px;color:#6B4E00}
+</style>
+</head>
+<body>
+
+<!-- ============ ХЕДЕР ============ -->
+<header class="head">
+  <div class="wrap">
+    <div class="wordmark">Black<span>&amp;</span>Honey</div>
+    <a href="../" class="back"><span class="arw">←</span> К капсуле</a>
+  </div>
+</header>
+
+<!-- ============ ШАПКА ДОКУМЕНТА ============ -->
+<section class="doc-hero">
+  <div class="wrap">
+    <div class="kicker">Правовая информация</div>
+    <h1>Договор-оферта на доступ к «Капсуле №1»</h1>
+    <p class="doc-sub">Условия, на которых мы открываем доступ к капсуле: что в неё входит, сколько стоит, на какой срок и что делать, если что-то пошло не так. Оплачивая доступ, вы соглашаетесь с этими условиями.</p>
+    <div class="doc-meta">
+      <span class="pill">Редакция от <b>12 ноября 2026 г.</b></span>
+      <span class="pill">Исполнитель: <b>ИП Бегинин К. О.</b></span>
+      <span class="pill">ИНН <b>645206474630</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ТЕЛО ============ -->
+<div class="doc-body">
+  <div class="wrap">
+
+    <nav class="toc" aria-label="Содержание">
+      <h2>Содержание</h2>
+      <ol>
+        <li><a href="#s1">Общие положения</a></li>
+        <li><a href="#s2">Что входит в капсулу</a></li>
+        <li><a href="#s3">Цена и оплата</a></li>
+        <li><a href="#s4">Как открывается доступ</a></li>
+        <li><a href="#s5">Цены в списке и замены</a></li>
+        <li><a href="#s6">Возврат денег</a></li>
+        <li><a href="#s7">Авторские права</a></li>
+        <li><a href="#s8">Ответственность</a></li>
+        <li><a href="#s9">Персональные данные</a></li>
+        <li><a href="#s10">Споры</a></li>
+        <li><a href="#s11">Реквизиты Исполнителя</a></li>
+      </ol>
+    </nav>
+
+    <div class="card">
+
+      <section class="s" id="s1">
+        <h2 class="sh"><span class="num">1</span> Общие положения</h2>
+        <ul class="pp">
+          <li><span class="n">1.1</span> Индивидуальный предприниматель Бегинин Кирилл Олегович (ИНН 645206474630, ОГРНИП 319645100072740), далее — «Исполнитель», предлагает любому дееспособному физическому лицу, далее — «Покупатель», заключить договор на условиях этой оферты. Это публичная оферта по статьям 435 и 437 Гражданского кодекса РФ.</li>
+          <li><span class="n">1.2</span> Договор заключён с момента оплаты доступа: оплата — это акцепт оферты по пункту 3 статьи 438 ГК РФ. Отдельный письменный договор не нужен.</li>
+          <li><span class="n">1.3</span> Оферта опубликована по адресу guides.blackandhoney.ru/kapsula/oferta/. Исполнитель может менять её текст. Новая редакция действует с даты публикации и не меняет условий уже оплаченного доступа.</li>
+        </ul>
+      </section>
+
+      <section class="s" id="s2">
+        <h2 class="sh"><span class="num">2</span> Что входит в капсулу</h2>
+        <ul class="pp">
+          <li><span class="n">2.1</span> Исполнитель открывает Покупателю доступ к цифровому продукту «Капсула №1», далее — «Капсула». Это личный кабинет на сайте kapsula.blackandhoney.ru, в котором собраны: визуализации интерьера евродвушки 46 м² в современном стиле (кухня-гостиная, спальня, прихожая, санузел); список вещей для этих комнат с ценами и ссылками на магазины; расчёт отделки и бюджета под площадь Покупателя; гид от дизайнеров.</li>
+          <li><span class="n">2.2</span> Капсула — готовые рекомендации дизайнеров для самостоятельного ремонта и обстановки. Это не индивидуальный дизайн-проект, не рабочая документация для строителей и не авторский надзор.</li>
+          <li><span class="n">2.3</span> Исполнитель не продаёт вещи из списка. Покупатель покупает их сам в сторонних магазинах — Ozon, Wildberries, «Лемана ПРО» и других — на условиях этих магазинов.</li>
+        </ul>
+      </section>
+
+      <section class="s" id="s3">
+        <h2 class="sh"><span class="num">3</span> Цена и оплата</h2>
+        <ul class="pp">
+          <li><span class="n">3.1</span> Цена Капсулы — 3 990 ₽. Она складывается из:
+            <ul class="dots">
+              <li><b>2 010 ₽ — материалы Капсулы</b>: визуализации, список вещей со ссылками, расчёты и гид. Материалы считаются переданными Покупателю в момент первого открытия Капсулы по личной ссылке. В эту сумму входит и первый месяц доступа и подбора замен по п. 5.2;</li>
+              <li><b>1 980 ₽ — сопровождение на 2-й и 3-й месяц</b>: доступ к Капсуле и подбор замен по п. 5.2, по 990 ₽ за каждый месяц.</li>
+            </ul>
+          </li>
+          <li><span class="n">3.2</span> Дальше доступ можно продлить — 990 ₽ за каждый следующий месяц. Продление вручную: Покупатель сам оплачивает каждый следующий месяц. Автоматических списаний с карты нет.</li>
+          <li><span class="n">3.3</span> Оплата — банковской картой российского банка или через ЮMoney, платёж принимает сервис ЮKassa. Кассовый чек приходит на электронную почту, которую Покупатель указал при оплате.</li>
+        </ul>
+      </section>
+
+      <section class="s" id="s4">
+        <h2 class="sh"><span class="num">4</span> Как открывается доступ</h2>
+        <ul class="pp">
+          <li><span class="n">4.1</span> После оплаты Капсула открывается по личной ссылке. Ссылку присылает бот black&amp;honey в мессенджере. Регистрация и пароль не нужны.</li>
+          <li><span class="n">4.2</span> Срок доступа — 3 месяца с даты оплаты. При продлении срок увеличивается на оплаченные месяцы.</li>
+          <li><span class="n">4.3</span> Ссылка личная. Покупатель не передаёт её другим людям и не публикует.</li>
+          <li><span class="n">4.4</span> Если ссылка не пришла или кабинет не открывается, Покупатель пишет на 717101@bk.ru или в бот. Исполнитель отвечает в течение 2 рабочих дней.</li>
+        </ul>
+      </section>
+
+      <section class="s" id="s5">
+        <h2 class="sh"><span class="num">5</span> Цены в списке и замены</h2>
+        <ul class="pp">
+          <li><span class="n">5.1</span> У каждой вещи в списке стоит дата, на которую проверена цена. В магазине цена и наличие могут измениться — их определяет магазин, а не Исполнитель.</li>
+          <li><span class="n">5.2</span> Пока доступ открыт, Исполнитель подбирает замену вещи, которая пропала из продажи: похожую по стилю, цвету и размеру. Чтобы сообщить о пропавшей вещи, Покупатель пишет в бот или на 717101@bk.ru и называет вещь и комнату. Замена появляется в Капсуле в течение 7 рабочих дней.</li>
+        </ul>
+      </section>
+
+      <section class="s" id="s6">
+        <h2 class="sh"><span class="num">6</span> Возврат денег</h2>
+        <ul class="pp">
+          <li><span class="n">6.1</span> Покупатель может отказаться от договора в любой момент (статья 32 Закона «О защите прав потребителей»). Для этого он пишет на 717101@bk.ru: имя, дату оплаты и мессенджер, в котором получил ссылку.</li>
+          <li><span class="n">6.2</span> Если после оплаты Покупатель ни разу не открыл Капсулу по личной ссылке и обратился до окончания срока доступа, Исполнитель возвращает всю сумму. Факт открытия Капсулы определяется по данным системы учёта переходов по личной ссылке. Если срок доступа истёк, услуга по предоставлению доступа считается оказанной.</li>
+          <li><span class="n">6.3</span> Если Капсула уже открывалась, материалы Капсулы переданы Покупателю (п. 3.1), и их стоимость — 2 010 ₽ — не возвращается. Исполнитель возвращает стоимость сопровождения за месяцы, которые ещё не начались: по 990 ₽ за каждый такой месяц, включая оплаченные месяцы продления.</li>
+          <li><span class="n">6.4</span> Деньги возвращаются тем же способом, которым Покупатель платил, в течение 10 дней со дня обращения. После возврата доступ к Капсуле закрывается.</li>
+        </ul>
+      </section>
+
+      <section class="s" id="s7">
+        <h2 class="sh"><span class="num">7</span> Авторские права</h2>
+        <ul class="pp">
+          <li><span class="n">7.1</span> Визуализации, тексты, подборка вещей и гид принадлежат Исполнителю. Покупатель пользуется ими для своего ремонта и обстановки своего жилья.</li>
+          <li><span class="n">7.2</span> Нельзя копировать материалы Капсулы, публиковать их, продавать или передавать доступ другим людям. Показать визуализацию своему мастеру или близким для своего ремонта можно.</li>
+        </ul>
+      </section>
+
+      <section class="s" id="s8">
+        <h2 class="sh"><span class="num">8</span> Ответственность</h2>
+        <ul class="pp">
+          <li><span class="n">8.1</span> Исполнитель не отвечает за качество, цену, наличие и доставку товаров в сторонних магазинах и за работу строителей и мастеров, которых нанимает Покупатель.</li>
+          <li><span class="n">8.2</span> Визуализация показывает, как выглядит квартира по проекту. Как выйдет у Покупателя, зависит от его планировки, площади, освещения и качества работ.</li>
+        </ul>
+      </section>
+
+      <section class="s" id="s9">
+        <h2 class="sh"><span class="num">9</span> Персональные данные</h2>
+        <ul class="pp">
+          <li><span class="n">9.1</span> Исполнитель обрабатывает персональные данные Покупателя по <a href="/privacy-policy">Политике обработки персональных данных</a>.</li>
+        </ul>
+      </section>
+
+      <section class="s" id="s10">
+        <h2 class="sh"><span class="num">10</span> Споры</h2>
+        <ul class="pp">
+          <li><span class="n">10.1</span> Если что-то пошло не так, сначала напишите на 717101@bk.ru. Исполнитель отвечает на претензию в течение 10 рабочих дней.</li>
+          <li><span class="n">10.2</span> Если договориться не получилось, спор решает суд по законодательству Российской Федерации.</li>
+        </ul>
+      </section>
+
+      <section class="s" id="s11">
+        <h2 class="sh"><span class="num">11</span> Реквизиты Исполнителя</h2>
+        <div class="req">
+          <h3>Исполнитель</h3>
+          <dl>
+            <dt>Наименование</dt>
+            <dd>Индивидуальный предприниматель Бегинин Кирилл Олегович</dd>
+            <dt>ИНН</dt>
+            <dd>645206474630</dd>
+            <dt>ОГРНИП</dt>
+            <dd>319645100072740</dd>
+            <dt>Адрес для корреспонденции</dt>
+            <dd>410012, г. Саратов, ул. Зарубина, д. 124/130, кв. 105</dd>
+            <dt>Электронная почта</dt>
+            <dd><a href="mailto:717101@bk.ru">717101@bk.ru</a></dd>
+            <dt>Сайт</dt>
+            <dd><a href="https://guides.blackandhoney.ru/kapsula/">guides.blackandhoney.ru/kapsula</a></dd>
+          </dl>
+        </div>
+        <p class="stamp">Редакция от 12 ноября 2026 г.</p>
+      </section>
+
+    </div><!-- /card -->
+  </div>
+</div>
+
+<!-- ============ ФУТЕР ============ -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <div class="wordmark">Black<span>&amp;</span>Honey</div>
+      <p style="margin-top:12px;font-size:.94rem;max-width:34ch">Ремонт без переделок, без слёз и без переплат — от практикующих дизайнеров.</p>
+      <div class="foot-links">
+        <a href="../">Капсула №1</a>
+        <a href="/privacy-policy">Политика обработки персональных данных</a>
+        <a href="./">Договор-оферта</a>
+      </div>
+    </div>
+    <div class="foot-right">
+      <b>blackandhoney.ru</b><br>
+      Студия дизайна интерьеров<br>
+      ИП Бегинин К. О., ИНН 645206474630
+    </div>
+  </div>
+  <div class="foot-strip" aria-hidden="true">
+    <i style="background:var(--sw-cream)"></i>
+    <i style="background:var(--sw-greige)"></i>
+    <i style="background:var(--sw-green)"></i>
+    <i style="background:var(--honey)"></i>
+    <i style="background:var(--terra)"></i>
+  </div>
+</footer>
+
+</body>
+</html>
